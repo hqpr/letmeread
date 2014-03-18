@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+{% block title %}{{ a }} - биография. Все книги автора{% endblock %}
+</head>
+
+{% block content %}
+
+
+<div class="titleContainer font1 titlePage titleBordered">
+    <div class="title">
+        {% if a.engname %}{{ a.engname }}{% endif %}
+    </div>
+</div>
+<div class="project">
+    <div class="pageSlider">
+        <div class="pageSliderItems">
+            <ul>
+                <li class="active">
+                    {% if a.image %}
+                        <img src="{{ MEDIA_URL }}{{ a.image }}" alt="" />
+                    {% else %}
+                        <img src="{{ MEDIA_URL }}noimage.jpg">
+                    {% endif %}
+
+                </li>
+            </ul>
+        </div>
+        <ul class="pageSliderNav">
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li class="pageSliderNavFill"></li>
+        </ul>
+    </div>
+    <div class="projectInfo">
+        <div class="projectInfoTitle font1">
+            {{ a.name }} {% if a.engname %}({{ a.engname }}){% endif %}
+        </div>
+        <div class="projectInfoDescription">
+        {% if a.text %}
+            {% autoescape on %}
+                {{ a.text|safe }}
+            {% endautoescape %}
+        {% endif %}
+
+        </div>
+        <div class="projectInfoDetails">
+
+        {% if a.bio != 'None' %}
+            {{ a.bio }}
+            {% else %}
+                <i>Пока нет информации</i>
+        {% endif %}
+    <br>
+
+            <div class="projectInfoDetailsEntry">
+                {% if d.rating %}
+                <div class="projectInfoDetailsEntryTitle">
+                    Рейтинг
+                </div>
+                <div class="projectInfoDetailsEntryBody">
+
+                    {{ d.rating }}
+                {% endif %}
+                </div>
+            </div>
+            {% if a.twitter %}
+            <div class="projectInfoDetailsEntry">
+                <div class="projectInfoDetailsEntryTitle">
+                    Twitter
+                </div>
+                <div class="projectInfoDetailsEntryBody">
+                    <a rel="nofollow" target="_blank" style="text-decoration: underline; color: #3CBCF4" href="https://twitter.com/{{ a.twitter }}"> {{ a.twitter }}</a>
+                </div>
+            </div>
+            {% endif %}
+
+        </div>
+    </div>
+
+
+
+    <div class="projectRelated">
+        <div class="titleContainer font1">
+            <div class="title">
+                Книги автора
+            </div>
+
+            <div class="clientsNav">
+                <div class="clientsNavPrev"></div>
+                <div class="clientsNavNext"></div>
+            </div>
+        </div>
+
+        <ul class="clients">
+            {% for a in b %}
+            <li>
+                <a href="/book/{{ a.id }}/"  title="{{ a.name }}">
+                    <img src="{{ MEDIA_URL }}{{ a.image }}" alt="{{ a.name }}" title="{{ a.name }}" width="144px"/>
+                </a>
+                <div class="title">
+                    <a href="/book/{{ a.id }}/" title="{{ a.name }}">
+                        {{ a.name }}
+                    </a>
+                </div>
+                <div class="description">
+                    <p title="Рейтинг книги {{ a.rating }}">{{ a.rating }}</p>
+                </div>
+            </li>
+           {% endfor %}
+        </ul>
+    </div>
+                           {% comment %}{% load disqus_tags %}
+                            {% disqus_dev %}
+                            {% disqus_show_comments %} {% endcomment %}
+</div>
+
+
+{% endblock %}

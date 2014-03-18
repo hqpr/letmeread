@@ -1,0 +1,116 @@
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<div class="sidebar">
+    <div class="widget font2">
+        <div class="widgetTitle font1">
+            Все записи
+        </div>
+        <div class="widgetBody">
+            <div class="widgetCategories">
+                <ul>
+                    <li>
+                        <a href="/blog/"><span></span> Вернуться в блог</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="widget font2">
+        <div class="widgetTitle font1">
+            категории
+        </div>
+        <div class="widgetBody">
+            <div class="widgetCategories">
+                <ul>
+                    {% for p in n %}
+                    <li>
+                        <a href="/blog/category/{{ p.category }}"><span></span>{{ p.category }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="widget font2">
+        <div class="widgetTitle font1">
+            новые книги
+        </div>
+        <div class="widgetBody">
+            <div class="widgetWorks">
+                <div class="widgetWorksEntry">
+                    <div class="widgetWorksEntryImg">
+                        <a href="project.html">
+                            <span></span>
+                            <img src="{{ MEDIA_URL }}img/slider/01.png" alt="" />
+                        </a>
+                    </div>
+                    <div class="widgetWorksEntryInfo">
+                        Solum iracundia scripserit ex vel.
+                    </div>
+                </div>
+                <div class="widgetWorksEntry">
+                    <div class="widgetWorksEntryImg">
+                        <a href="project.html">
+                            <span></span>
+                            <img src="{{ MEDIA_URL }}img/slider/02.jpg" alt="" />
+                        </a>
+                    </div>
+                    <div class="widgetWorksEntryInfo">
+                        Ea nec choro ullamcorper. At nisl prima simul has.
+                    </div>
+                </div>
+                <div class="widgetWorksEntry">
+                    <div class="widgetWorksEntryImg">
+                        <a href="project.html">
+                            <span></span>
+                            <img src="{{ MEDIA_URL }}img/slider/03.jpg" alt="" />
+                        </a>
+                    </div>
+                    <div class="widgetWorksEntryInfo">
+                        Utinam graece vivendo vis ex, vis posse viderer cu.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="widget font2">
+        <div class="widgetTitle font1">
+            latest posts
+        </div>
+        <div class="widgetBody">
+            <div class="widgetLatest">
+                <div class="widgetLatestEntry">
+                    <div class="widgetLatestEntryDate font1">
+                        11 jul
+                    </div>
+                    <div class="widgetLatestEntryTitle">
+                        <a href="post.html">
+                            Lorem ipsum dolor sit amet, ne erant clita.
+                        </a>
+                    </div>
+                </div>
+                <div class="widgetLatestEntry">
+                    <div class="widgetLatestEntryDate font1">
+                        30 jun
+                    </div>
+                    <div class="widgetLatestEntryTitle">
+                        <a href="post.html">
+                            Pro omnium vidisse cu, his et tamquam.
+                        </a>
+                    </div>
+                </div>
+                <div class="widgetLatestEntry">
+                    <div class="widgetLatestEntryDate font1">
+                        29 jun
+                    </div>
+                    <div class="widgetLatestEntryTitle">
+                        <a href="post.html">
+                            Facilis evertitur scriptorem ad nec.
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

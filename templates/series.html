@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+     {% block title %}Серия книг{% endblock %}
+</head>
+
+{% block content %}
+
+{% for b in s %}
+<div id="contents">
+    <div class="wrapper">
+        <div class="titleContainer font1 titlePage titleBordered">
+            <a href="/book/{{ b.id }}/" title="{{ b.name }}">
+            <div class="title">
+                {{ b.name }}
+            </div>
+            </a>
+        </div>
+        <div class="page">
+            <a href="/book/{{ b.id }}">
+                <img class="pageImg pageImgLeft" src="{{ MEDIA_URL }}{{ b.image }}" alt="{{ b.name }}" title="{{ b.name }}" />
+            </a>
+            <a href="/book/{{ b.id }}/"> {{ b.name }}</a> <span title="Рейтинг книги"> {% if b.rating %}({{ b.rating}}) {% endif %}</span><br>
+                {{ b.text }}
+            <br /><br />
+        {{ b.year }}
+        <br /><br />
+            <a href="/author/{{ b.author_id }}/" title="Про автора - {{ b.author }}">{{ b.author }}</a>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}

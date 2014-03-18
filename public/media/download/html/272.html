@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Книга: Открытки с того света</title>
+    <meta name="Author" content="Арминио Франко">
+    <meta name="description" content="Автор: Арминио Франко, Перевод: Киселев Геннадий, Книга: Открытки с того света, Жанр: проза, Издание: 2012 г.">
+    <meta name="revisit" content="6 months">
+<style type="text/css">
+
+BODY { padding-left: 20px; padding-right: 20px; margin-top: 20px; font-family: Tahoma, Geneva, Arial, Helvetica, sans-srif;  }
+
+TABLE { border: 1px solid darkgrey; border-spacing: 0px; border-right: 0px; border-bottom: 0px;empty-cells: show;}
+TH { border-right: 1px solid darkgrey; border-bottom: 1px solid darkgrey; background-color: #fafafa;  text-align: center; padding-left: 5px; padding-right: 5px;}
+TD { border-right: 1px solid darkgrey; border-bottom: 1px solid darkgrey; padding-left: 5px; padding-right: 5px;}
+
+H1, H1 > P { text-align: center; font-size: x-large; }
+H2, H2 > P { text-align: center; font-size: large; }
+
+P { text-indent: 4ex; text-align: justify; margin: 3px;}
+
+.epigraph DIV { text-align: right; margin-right: 50px; font-style: italic; font-size: small; }
+
+.cite P { text-align: center; font-style: italic; margin: 0px; padding: 0px; }
+
+.stanza {  margin: 1em; }
+
+.bookfooter { position: fixed; top: 0px; left: 0px; width: 100%; z-index: 2; background-color: white; color: black;
+	border-bottom: 1px solid green;  margin-left: 0px; margin-right: 0px; padding-left: 20px; padding-right: 20px;
+	font-size: 12px; 
+	}
+.hbooktitle { font-size: 4px; display: none; }
+.bookfooter A { text-decoration: none; }
+
+
+
+</style>
+<script type="text/javascript">
+
+var xmlHttp = false;
+/*@cc_on @*/
+/*@if (@_jscript_version >= 5)
+try {
+  xmlHttp = new ActiveXObject("Msxml2.XMLHTTP");
+} catch (e) {
+  try {
+    xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+  } catch (e2) {
+    xmlHttp = false;
+  }
+}
+@end @*/
+
+if (!xmlHttp && typeof XMLHttpRequest != 'undefined') {
+  xmlHttp = new XMLHttpRequest();
+}
+
+function Get_Cookie( name )
+{
+	var start = document.cookie.indexOf( name + "=" );
+	var len = start + name.length + 1;
+	if ( ( !start ) && ( name != document.cookie.substring( 0, name.length ) ) ) {return null;}
+	if ( start == -1 ) return null;
+	var end = document.cookie.indexOf( ";", len );
+	if ( end == -1 ) end = document.cookie.length;
+	return unescape( document.cookie.substring( len, end ) );
+} 
+
+function hidelayer( layer_ref )
+{
+  state = 'hidden';
+  if (document.all) { //IS IE 4 or 5 (or 6 beta)
+    eval( "if( document.all." + layer_ref +" ) document.all." + layer_ref + ".style.visibility = state");
+  }
+  if (document.layers) { //IS NETSCAPE 4 or below
+    if( document.layers[layer_ref] ) document.layers[layer_ref].visibility = state;
+  }
+  if (document.getElementById && !document.all) {
+    maxwell_smart = document.getElementById(layer_ref);
+    if( maxwell_smart ) maxwell_smart.style.visibility = state;
+  }
+}
+
+function showlayer( layer_ref )
+{
+  state = 'visible';
+  if (document.all) { //IS IE 4 or 5 (or 6 beta)
+    eval( "if( document.all." + layer_ref +" ) document.all." + layer_ref + ".style.visibility = state");
+  }
+  if (document.layers) { //IS NETSCAPE 4 or below
+    if( document.layers[layer_ref] ) document.layers[layer_ref].visibility = state;
+  }
+  if (document.getElementById && !document.all) {
+    maxwell_smart = document.getElementById(layer_ref);
+    if( maxwell_smart ) maxwell_smart.style.visibility = state;
+  }
+}
+
+
+function GotoContent()
+{
+	window.location.replace("#label"+document.bookfooter.contents.value);
+}
+
+function getBodyScrollTop()
+{
+  return self.pageYOffset || 
+    (document.documentElement && document.documentElement.scrollTop) || 
+    (document.body && document.body.scrollTop);
+}
+
+function getDocumentHeight()
+{
+  return (document.body.scrollHeight > document.body.offsetHeight)?
+    document.body.scrollHeight:
+    document.body.offsetHeight;
+}
+
+var timeoutpid=0;
+function ServerStatus()
+{
+   if (xmlHttp.readyState == 4)
+   {
+   		var response = xmlHttp.responseText;
+   		if( response.length>2 )
+   		{
+			document.getElementById('note').innerHTML = '<br>'+response;
+			showlayer('note');
+			clearTimeout(timeoutpid);
+			timeoutpid=setTimeout("document.getElementById('note').innerHTML = ''; hidelayer('note');",10000);
+		}
+   }
+}
+
+
+function SavePosition()
+{
+	var pos=getBodyScrollTop();
+	var height=getDocumentHeight();
+	var percent=Math.round(pos*100000/height);
+	var url = "/saveBookPos.php?book=1013525&pos="+percent;
+	document.cookie="booklastposition1013525="+percent+"; path=/; expires=Mon, 01-Jan-2050 00:00:00 GMT";
+    p=percent/1000;
+    document.getElementById('scrollpercent').innerHTML = p.toFixed(1)+'%';
+}
+
+function RestorePosition( ppos )
+{
+	var percent=Get_Cookie('booklastposition1013525');
+	if( ppos  )
+	{
+		percent=ppos;
+	}
+	else
+	{
+		if( Get_Cookie('bgColor') ) document.bgColor='#'+Get_Cookie('bgColor');
+		if( Get_Cookie('fgColor') ) document.fgColor='#'+Get_Cookie('fgColor');
+		var b=document.getElementsByTagName('p');
+		var fontSize=Get_Cookie('fontSize');
+		if( fontSize )
+		{
+			for( i=0; i<b.length; i++ )
+			{
+				b[i].style.fontSize = fontSize+'px';
+			}
+		
+		}
+	}
+	var height=getDocumentHeight();
+	var pos=Math.round(percent*height/100000);
+	if( percent>0 )
+	{
+	    if( typeof( window.pageYOffset ) == 'number' )
+	    {
+	        window.pageYOffset=pos;
+	    }
+	    else if( document.body && ( document.body.scrollLeft || document.body.scrollTop ) )
+	    {
+	        document.body.scrollTop=pos;
+        }
+        else if( document.documentElement && document.documentElement.scrollTop )
+        {
+            document.documentElement.scrollTop=pos;
+        }
+        window.scroll(0, pos);
+    }
+	document.getElementById('note').innerHTML = '';
+}
+
+function ReaderSettings()
+{
+	var bcolor=document.bookfooter.backgroundcolor.value;
+	if( bcolor.length==6 )
+	{
+		document.bgColor="#"+bcolor;
+		document.cookie="bgColor="+bcolor+"; path=/; expires=Mon, 01-Jan-2050 00:00:00 GMT";
+	}
+	var fcolor=document.bookfooter.textcolor.value;
+	if( fcolor.length==6 )
+	{
+		document.fgColor="#"+fcolor;
+		document.cookie="fgColor="+fcolor+"; path=/; expires=Mon, 01-Jan-2050 00:00:00 GMT";
+	}
+	var fsize=document.bookfooter.fsize.value;
+	if( fsize>4 )
+	{
+		var pos=getBodyScrollTop();
+		var height=getDocumentHeight();
+		var percent=Math.round(pos*100000/height);
+		var b=document.getElementsByTagName('p');
+		for( i=0; i<b.length; i++ ) 
+		{
+			b[i].style.fontSize = fsize+"px";
+		
+		}
+		if( percent==0 ) percent=1;
+		setTimeout("RestorePosition("+percent+")",500);
+		document.cookie="fontSize="+fsize+"; path=/; expires=Mon, 01-Jan-2050 00:00:00 GMT";
+	}
+
+}
+
+function DisplaySettings( id )
+{
+	state='unknown';
+	if (document.all) { //IS IE 4 or 5 (or 6 beta)
+    	eval( "if( document.all." + id +" ) state=document.all." + id + ".style.display");
+    }
+	if (document.layers) { //IS NETSCAPE 4 or below
+    	if( document.layers[id] ) state=document.layers[id].display;
+	}
+	if (document.getElementById && !document.all) {
+    	maxwell_smart = document.getElementById(id);
+    	if( maxwell_smart ) state=maxwell_smart.style.display;
+	}
+	if( state == 'none' ) state='inline';
+	else state='none'; 
+	if (document.all) { 
+    	eval( "if( document.all." + id +" ) document.all." + id + ".style.display = state");
+	}
+	if (document.layers) {
+    	if( document.layers[id] ) document.layers[id].display = state;
+	}
+	if (document.getElementById && !document.all) {
+    	maxwell_smart = document.getElementById(id);
+    	if( maxwell_smart ) maxwell_smart.style.display = state;
+	}
+}
+
+function tableruler()
+{
+	return 0;
+}
+
+</script>
+</head>
+<body onScroll="SavePosition();" onUnload="SavePosition();" onLoad="RestorePosition();">
+<div class=content id=bookcontent><br><center><script type="text/javascript"><!--
+google_ad_client = "ca-pub-1271376699634376";
+/* 728x90, bookreader */
+google_ad_slot = "7890934750";
+google_ad_width = 728;
+google_ad_height = 90;
+google_page_url = "http://www.e-reading.co.uk/bookreader.php/save/1013525/%D0%90%D1%80%D0%BC%D0%B8%D0%BD%D0%B8%D0%BE_-_%D0%9E%D1%82%D0%BA%D1%80%D1%8B%D1%82%D0%BA%D0%B8_%D1%81_%D1%82%D0%BE%D0%B3%D0%BE_%D1%81%D0%B2%D0%B5%D1%82%D0%B0.html";
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+<br></center><br><center><IMG SRC="http://www.e-reading.co.uk/illustrations/1013/1013525-cover.jpg" alt="Открытки с того света" style="max-width:90%;max-height:90%;" /></center>
+<DIV class=bookbody>
+  <DIV class=section>
+   <H1>
+    <P><a name=label1 style="border:none;"></a>Открытки с того света</P>
+   </H1>
+<textarea name="topadvert_request_async" disabled="true" style="display:none;">
+title: <b>Купить книгу "Открытки с того света":</b>
+feed_id: 5296
+pattern_id: 2266
+book_author: Арминио Франко
+book_name: Открытки с того света
+</textarea><div class="topadvert_div" style="display:none; font-size:12px;line-height:2.5;"></div>
+<script type="text/javascript" charset="utf-8" src="http://loader.topadvert.ru/load.utf8.js"></script>
+<div style="float:left;border:1px dotted lightgrey;width:160px;height:600px;margin:25px 10px 5px -20px;">  <script type="text/javascript"><!--
+  google_ad_client = "ca-pub-1271376699634376";
+  /* 160x600, book.php right */
+  google_ad_slot = "1251195223";
+  google_ad_width = 160;
+  google_ad_height = 600;
+  //-->
+  </script>
+  <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+</div>
+<!-- SHOWADS bannercount=0 160x600 -->
+
+   <DIV class=epigraph>
+    <P>Посвящается моему отцу.</P>
+    <P>Сейчас у него уже нет рта.</P>
+    <P>И он ни разу не спал со дня смерти.</P>
+   </DIV>
+   <P>Здесь конец зимы и конец весны примерно одинаковые. Сигналом служат первые розы. Одну розу я видела, когда меня везли на “скорой”. Я закрыла глаза, думая об этой розе. Спереди водитель и медсестра говорили о новом ресторане. Там и наешься досыта, и цены мизерные.</P>
+   <BR>
+   <P>Мне было пятьдесят шесть. Я жил один. Двадцать лет прожил в Швейцарии и вот вернулся в родные края. Утром я гулял по главной площади или сидел на скамейке. Днем уже не выходил. И вечером не выходил. Ложился в постель и лежал, пока не усну. Как-то ночью мне не спалось. Я почувствовал себя плохо. Было часа два. Я даже не смог встать с постели. Вдруг оказалось, что я ничего не вижу. Последнее, что я помню, — моя рука: она тянется к тумбочке, пытаясь зажечь свет.</P>
+   <BR>
+   <P>Я только выключил телевизор. Почувствовал слабость, лег на диван, и тут на сердце как будто надавила огромная ладонь. Я подумал, что умираю, и вспомнил, что не купил нишу в колумбарии. Теперь меня наверняка захоронят в могиле. Это будет моим последним проколом в жизни.</P>
+   <BR>
+   <P>Я умер в Канаде. У меня был жуткий понос. И жуткое лицо. Я попал в больницу. У меня взяли анализы. Через пару дней врачи сказали, что мне осталось жить считаные месяцы. Я больше ничего не ел и не вставал с постели.</P>
+   <BR>
+   <P>После института я запил. Я преподавал язык и литературу в средней школе. Потом женился и понял, что не смогу иметь детей. Тогда я стал смолить одну за другой и запил еще крепче. Однажды я писал на доске задание по итальянскому, и тут мне сделалось плохо. Меня отвезли в больницу. Руку меня уже не было, глаз не было, ног не было. Сердце билось посреди пустоты.</P>
+   <BR>
+   <P>В свои восемьдесят два я чувствовал себя хорошо. Потом упал и сломал шейку бедра. Я перестал выходить из дому. И уже не играл в карты в клубе пенсионеров. Когда нога перестала болеть, у меня обнаружили какую-то неприятную болячку в животе. Я лежал в больнице всего два раза, и то по нескольку дней. Я умер на Рождество. Жена только-только сняла с меня шерстяную майку, потому что я весь вспотел.</P>
+   <BR>
+   <P>Меня нашли на полу. До этого я не раз думал покончить с собой. Я просыпался и думал о самоубийстве. Потом начинал что-то делать и забывал об этом. Однажды утром я ни о чем не думал. Достал все лекарства из ящика, выпил все микстуры, капли, потом принял все таблетки. Я надеялся, что кто-то придет и остановит меня. Напоследок я включил радио. Захотелось услышать хотя бы приятную песенку.</P>
+   <BR>
+   <P>Я погиб от удара током. Мы работали в кинотеатре и почти все доделали. Я только вернулся из Швейцарии и был всем доволен.</P>
+   <BR>
+   <P>В пятьдесят семь у меня выявили рак легких. Болезнь длилась несколько месяцев. Я очень мучился, но это время было не хуже любого другого. Я постоянно жил с мыслью, что рано или поздно жизнь тебя облапошит, поэтому никогда ничему не радовался. Я все время ругался. Люди думали, я шучу, а я ругался всерьез, я на самом деле злился.</P>
+   <BR>
+   <P>Я вышел из бара и пошел не туда. Дул сильный ветер, валил снег. Сердце под пальто заледенело.</P>
+   <BR>
+   <P>В какой-то момент я решил, что могу стать важным человеком. Я почувствовал, что смерть дает мне отсрочку. Тогда я с головой окунулся в жизнь, как ребенок, запустивший руку в чулок с крещенскими подарками. Потом настал и мой день. Проснись, сказала мне жена. Проснись, все повторяла она.</P>
+   <BR>
+   <P>Я почти свыкся с болезнью. В тот день был праздник, и я надел праздничный костюм. Я смотрел, как жена устало ходит по дому. Я умер, подавившись мандарином.</P>
+   <BR>
+   <P>Я снимал пижаму. Собирался одеться и прожить очередной день, но успел только накинуть рубашку.</P>
+   <BR>
+   <P>Я регулярно ел жареное мясо. Теперь жена уверена, что от не-го-то у меня и заболел кишечник. Я часто болел, но каждый раз как будто понарошку. Зато когда приходит настоящая болезнь, она уже не уходит. Я перестал есть мясо. Жена готовила мне филе форели, но это было бесполезно.</P>
+   <BR>
+   <P>Под конец приходил священник. Потом врач. Возле меня неотступно дежурили. Я не ел уже десять дней. Иногда я смотрел на распятие и думал, что жизнь — сплошной обман.</P>
+   <BR>
+   <P>Я только встал и даже позавтракал: молока на два пальца и печенье. Я чувствовал себя плохо. Потом мне стало очень плохо. Я позвал жену, но до ее прихода уже закрыл глаза.</P>
+   <BR>
+   <P>Было шесть вечера. Было холодно. Вдруг по груди будто заколотили молотом. Со мной был сторож Тонино. Я только успел услышать, как он спрашивает: “Что с тобой, что с тобой?” А у меня слова застряли в горле.</P>
+   <BR>
+   <P>Я шел по улице и попал под машину. Я лежал, уткнувшись лицом в асфальт. В голове кружились небо, асфальт и кровь. Я лишь успел понять, что вся эта кровь на асфальте — моя.</P>
+   <BR>
+   <P>Стоял погожий солнечный денек. Я не хотел умирать в такой день. Я всегда думал, что умру ночью, под лай собак. Но я умер в полдень, когда по телевизору начиналось кулинарное шоу.</P>
+   <BR>
+   <P>Я пробовал и так и эдак, но мне не хватало уверенности в себе. В конце концов я повесился.</P>
+   <BR>
+   <P>Я был холостяком и умер во сне. Меня нашли через два дня. Весь дом уже наполнился смердящим запахом. Соседка положила ладонь мне на лоб. От него пахло гнилыми яблоками.</P>
+   <BR>
+   <P>Я сказал, что чувствую себя хорошо. Мать в это время готовила. Отец вышел прогуляться. Я снова раскладывал пасьянс, который у меня никогда не сходился.</P>
+   <BR>
+   <P>У меня во второй раз закружилась голова. Я упал. Меня положили в больницу. Сделали операцию. Стоял октябрь. В тот день показалось солнце, вышли свежие газеты, по улицам сновали машины, в кафе болтали люди. Меня одним махом отгородили от мира. Пробил мой час — даже не знаю, как объяснить.</P>
+   <BR>
+   <P>Я один из тех, кто за минуту до смерти был в полном порядке.</P>
+   <BR>
+   <P>Говорят, чаще всего умирают на рассвете. Годами я просыпался в четыре утра, вставал и ждал, когда роковой час пройдет. Я открывал книгу или включал телевизор. Иногда выходил на улицу. Я умер в семь вечера. Ничего особенного не произошло. Мир всегда вызывал у меня смутную тревогу. И вот эта тревога внезапно прошла.</P>
+   <BR>
+   <P>Я упал со строительных лесов. С утра был какой-то сонный. У меня закончился кофе. Состоится суд, кого-то обвинят или оправдают. Но я точно знаю: будь у меня полная банка кофе, я бы еще пожил.</P>
+   <BR>
+   <P>Я убирал свитера. Мне надоело сворачивать их один за другим и где-то складывать. В доме скопилось слишком много вещей. Слишком много свитеров, слишком много обуви, слишком много пальто, слишком много шарфов. Я упал на пол, вцепившись в свитер. Этот зеленый свитер я так ни разу и не надел.</P>
+   <BR>
+   <P>Я поехал в город. Простоял в пробке больше часа. Тут у меня в голове лопнула какая-то вена. Через несколько мгновений заглох и двигатель машины.</P>
+   <BR>
+   <P>Мне было девяносто девять. Мои дети приезжали в дом престарелых лишь затем, чтобы поговорить со мной о праздновании моего столетия. Меня все это совершенно не трогало. Я не слышал их, я чувствовал только свою усталость. И хотел умереть, чтобы не чувствовать и ее. Это случилось на глазах у моей старшей дочери. Она давала мне кусочек яблока и говорила о торте с цифрой сто. Единица должна быть длинной как палка, а нули — как велосипедные колеса, говорила она.</P>
+   <BR>
+   <P>Я брил одного старика. Мне было сорок девять, а ему девяносто. Я умер с бритвой в руке. Упал навзничь, как падают с лошади.</P>
+   <BR>
+   <P>Муж бросил меня в колодец. В него словно бес вселился, и откуда силы-то взялись. Я кричала, пока он меня тащил, но рядом никого не было. Только ласточки носились туда-сюда. Они вили гнездо под кровлей нашего дома.</P>
+   <BR>
+   <P>Как жалко тебя оставлять, сказал я жене. Она сжимала мне руки. Никто так не сожмет наши руки, когда нам хорошо. Никто.</P>
+   <BR>
+   <P>Стояла осень. На площади был я один. Я опирался на палку. Ветер налетал со всех сторон. Он поднял меня в небо вместе со скамейкой.</P>
+   <BR>
+   <P>Кровь изо рта. Внутри все оборвалось. Снаружи тикали часы. Герань впитывала воду, которой я полил ее накануне.</P>
+   <BR>
+   <P>На мое потное лицо села муха. Я умирал, а она упивалась моим смрадом.</P>
+   <BR>
+   <P>Мой последний вздох напоминал вздох муравья. Он был таким коротким, что никто его не заметил. Все и без того были возбуждены: искали новые туфли, платок, черный костюм.</P>
+   <BR>
+   <P>Только мать еще верила в мое выздоровление. Каждое утро она кипятила мне молоко. Ходила за свежей газетой. Я умер, когда ее не было. Она ушла помолиться за меня местному святому.</P>
+   <BR>
+   <P>Я гулял, ел мало, старался ни на кого не злиться. Все без толку.</P>
+   <BR>
+   <P>Я играл в бильярд. Потом все как обычно: “Дайте ему воды, посадите его”. Кто-то щупает тебе пульс, кто-то безостановочно произносит твое имя.</P>
+   <BR>
+   <P>Мне было одиннадцать лет. Я любил лазить где ни попадя. Однажды на меня рухнула ограда. Кованый лист железа раздавил мне лицо.</P>
+   <BR>
+   <P>Я проходил тест на повышенную нагрузку. Врач сказал, что нужно еще покрутить педали.</P>
+   <BR>
+   <P>На могильных досках таких, как я, изображают с длинными закрученными усами. Я даже не помню, как умер.</P>
+   <BR>
+   <P>Это случилось в машине. Муж вез меня домой. В больнице ему сказали, что они уже ничего не могут сделать.</P>
+   <BR>
+   <P>Все из-за коровы, стоявшей ночью посреди шоссе.</P>
+   <BR>
+   <P>Я умер от старости, хоть был еще не очень старым. Мне было пятьдесят девять.</P>
+   <BR>
+   <P>Когда мне сообщили, что у меня рак, я перестал выходить из дому. Я ездил на машине за город. Слегка откидывал сидение и опускал стекла, чтобы подышать воздухом.</P>
+   <BR>
+   <P>Я не знаю точно, отчего умер. Врачи всё брали анализы, пытаясь понять, что у меня.</P>
+   <BR>
+   <P>Мне всегда не везло. В день моих похорон все говорили о похоронах дочери аптекаря. Она умерла накануне.</P>
+   <BR>
+   <P>Стоял январь. Была среда. В воздухе кружились редкие снежинки. Я только переговорил с мраморщиком Винченцо. У меня и в мыслях не было, что я вот-вот умру.</P>
+   <BR>
+   <P>Обычно дома умирают в спальне или в ванной. Почти никогда не умирают на кухне. Редко когда умирают в гостиной. Я умер на балконе.</P>
+   <BR>
+   <P>У меня было двое детей-подростков. Заболев, я понял, что моя болезнь не вызывает у них никакого сочувствия. Скорее доставляет неудобство, потому что у матери нет времени на пироги.</P>
+   <BR>
+   <P>До меня уже умерло восемьдесят миллиардов человек.</P>
+   <BR>
+   <P>Это произошло в больнице. Около двух часов дня. За окном светило яркое солнце. Больно не было. Я сделал вздох поглубже. И отчетливо понял, что он последний.</P>
+   <BR>
+   <P>Я всегда был очень смирным. Я не должен был попасть под грузовик.</P>
+   <BR>
+   <P>Я пошел в кузнечную мастерскую. Мы говорили о перилах. Как можно верить в бога, когда человек умирает, говоря о перилах?</P>
+   <BR>
+   <P>Меня никто ни о чем не предупредил. Все пришлось делать самому: перестать двигаться, потерять дар речи, остыть, начать разлагаться.</P>
+   <BR>
+   <P>Жена ждала от меня последнего слова, но я ничего не сказал. Я только открывал и закрывал рот.</P>
+   <BR>
+   <P>Я умер в постели с женщиной. Мы познакомились за час до этого.</P>
+   <BR>
+   <P>Меня нашли спустя три дня. Пожар потух. Я лежал на полу перед дверью. Я оставил после себя кучу денег. Не то чтобы я был прижимистым, просто не умел тратить. Я любил ездить в деревню, а в деревне ничего не продается.</P>
+   <BR>
+   <P>Священник приходил много раз. Все было готово, но я никак не умирал. Временами я снова начинал есть и вставать. Так продолжалось с год. Раз двадцать меня соборовали, три раза сын приезжал из Швейцарии. Когда это действительно случилось, рядом никого не было.</P>
+   <BR>
+   <P>Я был учителем начальной школы. На пенсии. Недавно я овдовел. И это все.</P>
+   <BR>
+   <P>Жена все еще жалуется на врачей, не долечивших меня. Хотя я всегда считал себя неизлечимым. Даже когда Италия победила на чемпионате мира по футболу, даже когда я женился.</P>
+   <BR>
+   <P>Я был весельчаком. Потом у меня погиб сын и выпали зубы. Об остальном лучше вообще не говорить.</P>
+   <BR>
+   <P>Сумасшедший дом. Около пяти утра. Мой сосед все твердит: “Не умирай, не умирай, завтра к тебе приедет дочь, не умирай, погоди, она приедет, вот увидишь”.</P>
+   <BR>
+   <P>В гроб мне положили много-много кукол. И на моей могильной плите полно игрушек. В день моего рождения мама покупает и приносит новую.</P>
+   <BR>
+   <P>Я умер на стадионе. Моя команда выигрывала и нарочно тянула время, удерживая мяч в центре поля.</P>
+   <BR>
+   <P>Мать умерла от ущемления грыжи. Отец — от укуса шершня. Я ждал чего угодно. В итоге все кончилось раком.</P>
+   <BR>
+   <P>Я была хорошенькая. У меня был видный парень. Болезнь длилась долго. Казалось, я выздоравливаю. Потом снова становилось хуже. Он месяцами ждал момента, когда меня можно будет поцеловать.</P>
+   <BR>
+   <P>Я потерял сознание. Механик Джерардо втащил меня в свою малолитражку и отвез в больницу. Помню, он без конца повторял: “Мадонна, мадонна, какое несчастье!”</P>
+   <BR>
+   <P>Мои сестры помогали матери меня одевать. Потом явился отец. Он подошел ко мне совсем близко. Пока он смотрел на меня, мне захотелось ожить и обнять его хотя бы на миг.</P>
+   <BR>
+   <P>В тот день, когда я умер, шел дождь. Это был день моего рождения. Было четыре часа дня, но уже стемнело. Мама плакала с таким чувством, что от ее плача раздвигались стены дома. Плач доходил до самых корней растений. Папино лицо в рамке тоже менялось. Его кожа становилась светлее.</P>
+   <BR>
+   <P>У меня был цирроз печени, но дня за два до смерти я еще гулял в шарфе команды “Наполи”.</P>
+   <BR>
+   <P>К пятидесяти годам у меня было лицо человека, который может умереть с минуты на минуту. Я умер в девяносто шесть, после долгой агонии.</P>
+   <BR>
+   <P>В день, когда врач сказал, что у меня рак, я сбросил два килограмма. Я сбросил их, пока плакал.</P>
+   <BR>
+   <P>Морфий усыплял боль, но не раздражение от всего того, что я видел. Меня раздражали даже ломтик ветчины на тарелке и бульканье закипающего кофе.</P>
+   <BR>
+   <P>В некоторых случаях, в моем, например, смерть — это как последний штрих, вишенка на торте.</P>
+   <P>В день открытия сезона охоты кто-то принял меня за перепела.</P>
+   <BR>
+   <P>Прежде чем выдать микстуру от кашля, в аптеке спрашивали, сухой у меня кашель или с мокротой. Врач, делавший мне компьютерную томографию, сказал, что у меня в легких пятно величиной с теннисный мяч.</P>
+   <BR>
+   <P>Соседки приходили ко мне каждый вечер поболтать о том о сем или пожаловаться на мужей. Когда я умерла, соседки расстроились, потому что им не с кем стало проводить свободное время.</P>
+   <BR>
+   <P>Я умер в семь утра. Надо же с чего-то начинать день.</P>
+   <BR>
+   <P>Я повесился в тот день, когда врач сказал, что нужно провести дополнительное обследование. Все было ясно; оставалось найти в гараже веревку.</P>
+   <BR>
+   <P>Днем я тачал башмаки, а вечером напивался. Я умер в метровом сугробе в ночь на 17 февраля, в двух шагах от дома.</P>
+   <BR>
+   <P>Я заболел диабетом. Сначала он съел у меня ногу, потом — все остальное.</P>
+   <BR>
+   <P>Я никогда не понимал тех, кто не боится смерти. Сейчас я понимаю их еще меньше.</P>
+   <BR>
+   <P>Я все время думал, что у меня опасная болезнь. Врачи постоянно говорили, что у меня ничего нет. Теперь я бы как следует врезал каждому из них.</P>
+   <BR>
+   <P>Все свое время я проводил на главной площади: то в баре посижу, то на скамейке. На мою могилу взяли как раз то фото, которое снял наш фотограф Федерико. В тот день я надел новые брюки.</P>
+   <BR>
+   <P>Я жила в Цюрихе. В некрологе написали, что я вознеслась в дом Отца нашего. На деле я бросилась с шестого этажа.</P>
+   <BR>
+   <P>Чему я всегда радовался, так это рождественскому вертепу. Каждый год он получался все наряднее. Я выставлял его перед дверью нашего дома. Дверь была постоянно открыта. Единственную комнату я разделил красно-белой лентой, как при ремонте дорог. Тех, кто останавливался полюбоваться вертепом, я угощал пивом. Я подробно рассказывал о папье-маше, мускусе, овечках, волхвах, реках, замках, пастухах и пастушках, пещерах, Младенце, путеводной звезде, электропроводке. Электропроводка была моей гордостью. Я умер один в рождественскую ночь, глядя на вертеп, сверкавший всеми огнями.</P>
+   <BR>
+   <P>Мое тело напоминает горшок с землей. Сквозь черное и коричневое проглядывает моя голубая блузка.</P>
+   <BR>
+   <P>День моих похорон был самым обыкновенным днем. И следующий день — тоже.</P>
+   <BR>
+   <P>В определенный момент ты чувствуешь: что-то пошло не так. Все может начаться со слабого воспаления, легкого жжения.</P>
+   <BR>
+   <P>Я всегда испытывал смутное беспокойство, будто в жизни я не на своем месте. Вот и после смерти я упокоился в могиле по соседству с моей.</P>
+   <BR>
+   <P>Меня звали Альфредо. Я тридцать лет прожил в Германии. Потом вышел на пенсию и вернулся в родной городок. Я погиб в тот вечер, когда произошло землетрясение. Я сидел в баре. Человек, игравший со мной в карты, спасся.</P>
+   <BR>
+   <P>Я упал перед холодильником. Меня нашла жена. Я закрыл лицо руками, словно стыдясь того, что со мной произошло.</P>
+   <BR>
+   <P>В тот день около двух часов состоялся крестный ход. Я был среди тех, кто нес статую святого. Я вовремя не сменился. Мы шли сквозь густую толпу. Я хотел, чтобы все видели, как я вспотел и страдаю.</P>
+   <BR>
+   <P>Из всего, что было на белом свете, мне не хватает только воздуха. Может, поэтому напоследок я попросил жену открыть окно.</P>
+   <BR>
+   <P>Врач рекомендовал соблюдать диету, но я любил макароны с соусом. Каждый вечер мне готовили по триста граммов.</P>
+   <BR>
+   <P>Я лежал на земле в моем винограднике. Я обращался к Богу, к Мадонне и ко всем святым. Я ждал помощи. Вместо этого пошел дождь.</P>
+   <BR>
+   <P>Меня зовут Марио. Меня звали Марио и при жизни, но тогда мое имя для чего-то было нужно.</P>
+   <BR>
+   <P>Я умер через пять минут после того, как меня похоронили.</P>
+   <BR>
+   <P>Сейчас меня разбирает дурацкое любопытство. Вот бы узнать, сумел ли мой кузен Маурицио продать свой подержанный “фольскваген-гольф”, за который просил шесть миллионов лир.</P>
+<!-- SHOWADS bannercount=1 -->
+<br><center>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-1271376699634376";
+/* 728x90, bookreader */
+google_ad_slot = "7890934750";
+google_ad_width = 728;
+google_ad_height = 90;
+google_page_url = "http://www.e-reading.co.uk/bookreader.php/save/1013525/%D0%90%D1%80%D0%BC%D0%B8%D0%BD%D0%B8%D0%BE_-_%D0%9E%D1%82%D0%BA%D1%80%D1%8B%D1%82%D0%BA%D0%B8_%D1%81_%D1%82%D0%BE%D0%B3%D0%BE_%D1%81%D0%B2%D0%B5%D1%82%D0%B0.html";
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+<br></center>
+
+   <BR>
+   <P>Я всегда был оптимистом. И на том спасибо.</P>
+   <BR>
+   <P>Я пахал. Трактор завалился на бок и подмял меня. Я только успел подумать, что еще не выплатил по нему весь кредит.</P>
+   <BR>
+   <P>Поплавав в море, я вышел из воды и вытирался. Я упал на песочный замок.</P>
+   <BR>
+   <P>Я умер три тысячи лет назад. Я был пастухом, как и все. Я заснул, а корова наступила мне на живот.</P>
+   <BR>
+   <P>Я умер, когда еще умирали по-настоящему. Помню, пришел священник, и стали заколачивать гроб. Мама и сестра так причитали, что даже священник растрогался.</P>
+   <BR>
+   <P>В больнице сказали, что операцию нужно делать сразу. Меня прооперировали, и я сразу умер.</P>
+   <BR>
+   <P>Настал первый день пасхальной недели. Потом второй. Как начнешь умирать, так уже не остановишься.</P>
+   <BR>
+   <P>Достаточно отвлечься буквально на секунду. Я упал с лестницы, задумавшись, какую зубную пасту купить.</P>
+   <BR>
+   <P>Поначалу наши близкие хотели бы нас вернуть. Потом они свыкаются с тем, что нас нет. Потом всех устраивает, что мы там, где мы есть.</P>
+   <BR>
+   <P>Однажды Джанни Моранди надписал мне открытку. Я бы никогда не подумал, что его посвящение окажется на моей могильной плите.</P>
+   <BR>
+   <P>Я жил в проулке, где когда-то было полным-полно народа, мулов и свиней. Я выходил из дома только в магазин. Потом снова погружался в мысли о больном сердце.</P>
+   <BR>
+   <P>У меня дико разболелась голова, пока я ел виноград. Это было 16 сентября 1979 года. Мне было сорок два года. Я работал каменщиком.</P>
+   <BR>
+   <P>Я пока не умер, но все равно прикрепил свою фотографию к могильной доске рядом с фотографией жены.</P>
+   <BR>
+   <P>Нет даже небытия — по крайней мере, мне так кажется.</P>
+   <BR>
+   <P>Последние шесть лет я провел в постели. Каждая ночь казалась последней. Но я продолжал мучиться, я только и делал, что мучился. Как это часто бывает, в день смерти мое самочувствие слегка улучшилось. Я попросил жену приготовить яичницу.</P>
+   <BR>
+   <P>Рак легких. Все из-за того, что муж без конца курил. Он курил даже в постели. Просыпался в три утра и закуривал. Он курил и днем, но реже.</P>
+   <BR>
+   <P>Болезнь крови: сейчас уже не припомню название. Вообще-то я был знаменит, хотя бы у нас в глубинке. О моей кончине написали в местных газетах. Мэры соседних городков съехались на отпевание. Обряд проводил епископ.</P>
+   <BR>
+   <P>Я застрял в перевернувшейся машине. Пытался открыть окно и вылезти. Я надеялся на помощь Антонио, он ехал со мной. Но Антонио был уже того.</P>
+   <BR>
+   <P>Меня звали Пьетро. Каждый вечер я напивался и бил жену.</P>
+   <BR>
+   <P>На мои похороны пришла тьма народу. Людям я нравился, я всех угощал выпивкой. Это дома я срывался. Меня нервировал запах жены и дома.</P>
+   <BR>
+   <P>Я умер вдали от своей деревушки. Съездил туда на Рождество, было хорошо. Только в ногах какая-то тяжесть. Потом вернулся в город и вышел на работу. Жизнь шла своим чередом. Я постоянно с кем-то общался. Когда на заправке мне заливали полный бак, я почувствовал, что голова стала пустой, как орех.</P>
+   <BR>
+   <P>Сначала я ухаживала за мужем. Потом заболела сама. Два года мучилась. Наш сын — инвалид-колясочник. Он не знает, что делать со всеми деньгами, которые мы ему оставили.</P>
+   <BR>
+   <P>Я умер от опухоли мозга. По мнению врачей, у меня была опухоль и в кишечнике, но я ее не замечал, меня беспокоила головная боль. С какого-то момента я уже ничего другого не чувствовал. Для врачей я был в коме, а на самом деле — в полном сознании. Я был целиком внутри опухоли, как улитка в раковине.</P>
+   <BR>
+   <P>Меня повесили мои родители-крестьяне. Они не хотели, чтобы я встречалась с одним парнем. По их понятиям, он был мне не пара. Это случилось не в Средние века. Шел 1929 год.</P>
+   <BR>
+   <P>В четверть третьего дня я сказала дочери, что мне плохо. Она застыла на месте со стаканом воды в руке. Стоял январь. Был вторник.</P>
+   <BR>
+   <P>Я выписывал рецепт пожилой женщине. Моя голова упала на письменный стол. Руки замерли и тут же окоченели.</P>
+   <BR>
+   <P>Я здесь, в самой верхней нише северной стены кладбища. Сквозь щель в нишу забивается снег и лежит тут месяцами.</P>
+   <BR>
+   <P>Я тоже, я тоже.</P>
+   <BR>
+   <H2><a name=label2 style="border:none;"></a>Примечание</H2>
+   <P>Я написал эти открытки после коротких, но постоянных приступов паники. Теперь приступы уже не такие, как раньше. Раньше ты сразу искал кого-то, кто отвез бы тебя в больницу, и, если не находил, ехал туда сам, а когда приезжал, толком не понимал, вправду ли ты умираешь или вступил в следующую фазу своей мучительной ипохондрии. Я пробовал писать открытки и в другое время, пробовал не раз, но все их выбрасывал. Они получались похожими на обычные открытки. Рисунок фраз был тем же, такой же была и тональность, но слог выходил сухим, он не был пропитан тем настроением, в которое ты погружаешься после едва пережитой смерти. Тогда ты можешь описать то, на чем, возможно, все держится, описать то небытие, которое поддерживает и разъедает все на свете. Панический взгляд углубляет чувства, огрубляет их. У тебя нет времени, чтобы придать им утонченную форму, олитературить их. Минут через двадцать ты снова в тупике покоя или привычного беспокойства и тогда можешь говорить только о своей жизни или о жизни других людей. Мертвые не думают о тебе и не шлют тебе никаких открыток.</P>
+   <H2><a name=label3 style="border:none;"></a>Благодарность</H2>
+   <P>Миммо Скарпе — за то, что воодушевил меня после первых же открыток; Антоньетте Фратианни и Эльде Мартино — за то, что помогали выстраивать эту книжицу на всех ее этапах; Ливио Боррьелло, Франческо Де Сио Лаццари, Марко Эркола-ни, Франческо Маротте, Якопо Мазини, Лауре Маурьелло, Аделельмо Руджери, Альберто Сайбене, Тициано Скарпе, Эмануэле Треви — за советы.</P>
+  </DIV>
+ </DIV><br><center><script type="text/javascript"><!--
+google_ad_client = "pub-0321943928525350";
+/* 728x90, bookreader */
+google_ad_slot = "0629089296";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+<br></center><hr size=1><form name=bookfooter><div id=bookfooterid class=bookfooter><a href="http://www.e-reading.co.uk/">на главную</a> | <a href="http://www.e-reading.co.uk/listbooks.php?list=4" rel="nofollow">моя полка</a> | <a rel="author" href="http://www.e-reading.co.uk/bookbyauthor.php?author=1004173">Арминио Франко</a> | <a href="http://www.e-reading.co.uk/book.php?book=1013525">Открытки с того света</a> <span id="scrollpercent"></span> | <select name=contents onchange="GotoContent();">
+<option value=0>Содержание</option>
+<option value=1>Открытки с того света</option>
+<option value=2>Примечание</option>
+<option value=3>Благодарность</option>
+</select>
+&nbsp; &nbsp; <img src=http://www.e-reading.co.uk/images/fg.jpg alt="цвет текста" height=16 onClick="DisplaySettings('fgsettings')" style="vertical-align: bottom;"> <select id=fgsettings name=textcolor onchange="ReaderSettings();" style="display: none;">
+<option value=0>цвет текста</option><script type="text/javascript" language="javascript">
+document.write('<option style="background-color: #FFFFFF;" value="FFFFFF">White</option>');
+document.write('<option style="background-color: #C0C0C0;" value="C0C0C0">Silver</option>');
+document.write('<option style="background-color: #808080;" value="808080">Grey</option>');
+document.write('<option style="background-color: #000000;" value="000000">Black</option>');
+document.write('<option style="background-color: #FF0000;" value="FF0000">Red</option>');
+document.write('<option style="background-color: #FFFF00;" value="FFFF00">Yellow</option>');
+document.write('<option style="background-color: #808000;" value="808000">Olive</option>');
+document.write('<option style="background-color: #00FF00;" value="008000">Lime</option>');
+document.write('<option style="background-color: #008000;" value="008000">Green</option>');
+document.write('<option style="background-color: #0000FF;" value="0000FF">Blue</option>');
+document.write('<option style="background-color: #000080;" value="000080">Navy</option>');
+
+document.write('<option style="background-color: #FFFAFA;" value="FFFAFA">Snow</option><option style="background-color: #F8F8FF;" value="F8F8FF">GhostWhite</option><option style="background-color: #F5F5F5;" value="F5F5F5">WhiteSmoke</option><option style="background-color: #DCDCDC;" value="DCDCDC">Gainsboro</option><option style="background-color: #FFFAF0;" value="FFFAF0">FloralWhite</option><option style="background-color: #FDF5E6;" value="FDF5E6">OldLace</option><option style="background-color: #FAF0E6;" value="FAF0E6">Linen</option><option style="background-color: #FAEBD7;" value="FAEBD7">AntiqueWhite</option><option style="background-color: #FFEFD5;" value="FFEFD5">PapayaWhip</option><option style="background-color: #FFEBCD;" value="FFEBCD">BlanchedAlmond</option><option style="background-color: #FFE4C4;" value="FFE4C4">Bisque</option><option style="background-color: #FFDAB9;" value="FFDAB9">PeachPuff</option><option style="background-color: #FFDEAD;" value="FFDEAD">NavajoWhite</option><option style="background-color: #FFE4B5;" value="FFE4B5">Moccasin</option><option style="background-color: #FFF8DC;" value="FFF8DC">Cornsilk</option><option style="background-color: #FFFFF0;" value="FFFFF0">Ivory</option><option style="background-color: #FFFACD;" value="FFFACD">LemonChiffon</option><option style="background-color: #FFF5EE;" value="FFF5EE">Seashell</option><option style="background-color: #F0FFF0;" value="F0FFF0">Honeydew</option><option style="background-color: #F5FFFA;" value="F5FFFA">MintCream</option><option style="background-color: #F0FFFF;" value="F0FFFF">Azure</option><option style="background-color: #F0F8FF;" value="F0F8FF">AliceBlue</option><option style="background-color: #E6E6FA;" value="E6E6FA">lavender</option><option style="background-color: #FFF0F5;" value="FFF0F5">LavenderBlush</option><option style="background-color: #FFE4E1;" value="FFE4E1">MistyRose</option><option style="background-color: #FFFFFF;" value="FFFFFF">White</option><option style="background-color: #000000;" value="000000">Black</option><option style="background-color: #2F4F4F;" value="2F4F4F">DarkSlateGray</option><option style="background-color: #696969;" value="696969">DimGrey</option><option style="background-color: #708090;" value="708090">SlateGrey</option><option style="background-color: #778899;" value="778899">LightSlateGray</option><option style="background-color: #BEBEBE;" value="BEBEBE">Grey</option><option style="background-color: #D3D3D3;" value="D3D3D3">LightGray</option><option style="background-color: #191970;" value="191970">MidnightBlue</option><option style="background-color: #000080;" value="000080">NavyBlue</option><option style="background-color: #6495ED;" value="6495ED">CornflowerBlue</option><option style="background-color: #483D8B;" value="483D8B">DarkSlateBlue</option><option style="background-color: #6A5ACD;" value="6A5ACD">SlateBlue</option><option style="background-color: #7B68EE;" value="7B68EE">MediumSlateBlue</option><option style="background-color: #8470FF;" value="8470FF">LightSlateBlue</option><option style="background-color: #0000CD;" value="0000CD">MediumBlue</option><option style="background-color: #4169E1;" value="4169E1">RoyalBlue</option><option style="background-color: #0000FF;" value="0000FF">Blue</option><option style="background-color: #1E90FF;" value="1E90FF">DodgerBlue</option><option style="background-color: #00BFFF;" value="00BFFF">DeepSkyBlue</option><option style="background-color: #87CEEB;" value="87CEEB">SkyBlue</option><option style="background-color: #87CEFA;" value="87CEFA">LightSkyBlue</option><option style="background-color: #4682B4;" value="4682B4">SteelBlue</option><option style="background-color: #B0C4DE;" value="B0C4DE">LightSteelBlue</option><option style="background-color: #ADD8E6;" value="ADD8E6">LightBlue</option><option style="background-color: #B0E0E6;" value="B0E0E6">PowderBlue</option><option style="background-color: #AFEEEE;" value="AFEEEE">PaleTurquoise</option><option style="background-color: #00CED1;" value="00CED1">DarkTurquoise</option><option style="background-color: #48D1CC;" value="48D1CC">MediumTurquoise</option><option style="background-color: #40E0D0;" value="40E0D0">Turquoise</option><option style="background-color: #00FFFF;" value="00FFFF">Cyan</option><option style="background-color: #E0FFFF;" value="E0FFFF">LightCyan</option><option style="background-color: #5F9EA0;" value="5F9EA0">CadetBlue</option><option style="background-color: #66CDAA;" value="66CDAA">MediumAquamarine</option><option style="background-color: #7FFFD4;" value="7FFFD4">Aquamarine</option><option style="background-color: #006400;" value="006400">DarkGreen</option><option style="background-color: #556B2F;" value="556B2F">DarkOliveGreen</option><option style="background-color: #8FBC8F;" value="8FBC8F">DarkSeaGreen</option><option style="background-color: #2E8B57;" value="2E8B57">SeaGreen</option><option style="background-color: #3CB371;" value="3CB371">MediumSeaGreen</option><option style="background-color: #20B2AA;" value="20B2AA">LightSeaGreen</option><option style="background-color: #98FB98;" value="98FB98">PaleGreen</option><option style="background-color: #00FF7F;" value="00FF7F">SpringGreen</option><option style="background-color: #7CFC00;" value="7CFC00">LawnGreen</option><option style="background-color: #00FF00;" value="00FF00">Green</option><option style="background-color: #7FFF00;" value="7FFF00">Chartreuse</option><option style="background-color: #00FA9A;" value="00FA9A">MedSpringGreen</option><option style="background-color: #ADFF2F;" value="ADFF2F">GreenYellow</option><option style="background-color: #32CD32;" value="32CD32">LimeGreen</option><option style="background-color: #9ACD32;" value="9ACD32">YellowGreen</option><option style="background-color: #228B22;" value="228B22">ForestGreen</option><option style="background-color: #6B8E23;" value="6B8E23">OliveDrab</option><option style="background-color: #BDB76B;" value="BDB76B">DarkKhaki</option><option style="background-color: #EEE8AA;" value="EEE8AA">PaleGoldenrod</option><option style="background-color: #FAFAD2;" value="FAFAD2">LtGoldenrodYello</option><option style="background-color: #FFFFE0;" value="FFFFE0">LightYellow</option><option style="background-color: #FFFF00;" value="FFFF00">Yellow</option><option style="background-color: #FFD700;" value="FFD700">Gold</option><option style="background-color: #EEDD82;" value="EEDD82">LightGoldenrod</option><option style="background-color: #DAA520;" value="DAA520">goldenrod</option><option style="background-color: #B8860B;" value="B8860B">DarkGoldenrod</option><option style="background-color: #BC8F8F;" value="BC8F8F">RosyBrown</option><option style="background-color: #CD5C5C;" value="CD5C5C">IndianRed</option><option style="background-color: #8B4513;" value="8B4513">SaddleBrown</option><option style="background-color: #A0522D;" value="A0522D">Sienna</option><option style="background-color: #CD853F;" value="CD853F">Peru</option><option style="background-color: #DEB887;" value="DEB887">Burlywood</option><option style="background-color: #F5F5DC;" value="F5F5DC">Beige</option><option style="background-color: #F5DEB3;" value="F5DEB3">Wheat</option><option style="background-color: #F4A460;" value="F4A460">SandyBrown</option><option style="background-color: #D2B48C;" value="D2B48C">Tan</option><option style="background-color: #D2691E;" value="D2691E">Chocolate</option><option style="background-color: #B22222;" value="B22222">Firebrick</option><option style="background-color: #A52A2A;" value="A52A2A">Brown</option><option style="background-color: #E9967A;" value="E9967A">DarkSalmon</option><option style="background-color: #FA8072;" value="FA8072">Salmon</option><option style="background-color: #FFA07A;" value="FFA07A">LightSalmon</option><option style="background-color: #FFA500;" value="FFA500">Orange</option><option style="background-color: #FF8C00;" value="FF8C00">DarkOrange</option><option style="background-color: #FF7F50;" value="FF7F50">Coral</option><option style="background-color: #F08080;" value="F08080">LightCoral</option><option style="background-color: #FF6347;" value="FF6347">Tomato</option><option style="background-color: #FF4500;" value="FF4500">OrangeRed</option><option style="background-color: #FF0000;" value="FF0000">Red</option><option style="background-color: #FF69B4;" value="FF69B4">HotPink</option><option style="background-color: #FF1493;" value="FF1493">DeepPink</option><option style="background-color: #FFC0CB;" value="FFC0CB">Pink</option><option style="background-color: #FFB6C1;" value="FFB6C1">LightPink</option><option style="background-color: #DB7093;" value="DB7093">PaleVioletRed</option><option style="background-color: #B03060;" value="B03060">Maroon</option><option style="background-color: #C71585;" value="C71585">MediumVioletRed</option><option style="background-color: #D02090;" value="D02090">VioletRed</option><option style="background-color: #FF00FF;" value="FF00FF">Magenta</option><option style="background-color: #EE82EE;" value="EE82EE">Violet</option><option style="background-color: #DDA0DD;" value="DDA0DD">Plum</option><option style="background-color: #DA70D6;" value="DA70D6">Orchid</option><option style="background-color: #BA55D3;" value="BA55D3">MediumOrchid</option><option style="background-color: #9932CC;" value="9932CC">DarkOrchid</option><option style="background-color: #9400D3;" value="9400D3">DarkViolet</option><option style="background-color: #8A2BE2;" value="8A2BE2">BlueViolet</option><option style="background-color: #A020F0;" value="A020F0">Purple</option><option style="background-color: #9370DB;" value="9370DB">MediumPurple</option><option style="background-color: #D8BFD8;" value="D8BFD8">Thistle</option><option style="background-color: #FFFAFA;" value="FFFAFA">Snow1</option><option style="background-color: #EEE9E9;" value="EEE9E9">Snow2</option><option style="background-color: #CDC9C9;" value="CDC9C9">Snow3</option><option style="background-color: #8B8989;" value="8B8989">Snow4</option><option style="background-color: #FFF5EE;" value="FFF5EE">Seashell1</option><option style="background-color: #EEE5DE;" value="EEE5DE">Seashell2</option><option style="background-color: #CDC5BF;" value="CDC5BF">Seashell3</option><option style="background-color: #8B8682;" value="8B8682">Seashell4</option><option style="background-color: #FFEFDB;" value="FFEFDB">AntiqueWhite1</option><option style="background-color: #EEDFCC;" value="EEDFCC">AntiqueWhite2</option><option style="background-color: #CDC0B0;" value="CDC0B0">AntiqueWhite3</option><option style="background-color: #8B8378;" value="8B8378">AntiqueWhite4</option><option style="background-color: #FFE4C4;" value="FFE4C4">Bisque1</option><option style="background-color: #EED5B7;" value="EED5B7">Bisque2</option><option style="background-color: #CDB79E;" value="CDB79E">Bisque3</option><option style="background-color: #8B7D6B;" value="8B7D6B">Bisque4</option><option style="background-color: #FFDAB9;" value="FFDAB9">PeachPuff1</option><option style="background-color: #EECBAD;" value="EECBAD">PeachPuff2</option><option style="background-color: #CDAF95;" value="CDAF95">PeachPuff3</option><option style="background-color: #8B7765;" value="8B7765">PeachPuff4</option><option style="background-color: #FFDEAD;" value="FFDEAD">NavajoWhite1</option><option style="background-color: #EECFA1;" value="EECFA1">NavajoWhite2</option><option style="background-color: #CDB38B;" value="CDB38B">NavajoWhite3</option><option style="background-color: #8B795E;" value="8B795E">NavajoWhite4</option><option style="background-color: #FFFACD;" value="FFFACD">LemonChiffon1</option><option style="background-color: #EEE9BF;" value="EEE9BF">LemonChiffon2</option><option style="background-color: #CDC9A5;" value="CDC9A5">LemonChiffon3</option><option style="background-color: #8B8970;" value="8B8970">LemonChiffon4</option><option style="background-color: #FFF8DC;" value="FFF8DC">Cornsilk1</option><option style="background-color: #EEE8CD;" value="EEE8CD">Cornsilk2</option><option style="background-color: #CDC8B1;" value="CDC8B1">Cornsilk3</option><option style="background-color: #8B8878;" value="8B8878">Cornsilk4</option><option style="background-color: #FFFFF0;" value="FFFFF0">Ivory1</option><option style="background-color: #EEEEE0;" value="EEEEE0">Ivory2</option><option style="background-color: #CDCDC1;" value="CDCDC1">Ivory3</option><option style="background-color: #8B8B83;" value="8B8B83">Ivory4</option><option style="background-color: #F0FFF0;" value="F0FFF0">Honeydew1</option><option style="background-color: #E0EEE0;" value="E0EEE0">Honeydew2</option><option style="background-color: #C1CDC1;" value="C1CDC1">Honeydew3</option><option style="background-color: #838B83;" value="838B83">Honeydew4</option><option style="background-color: #FFF0F5;" value="FFF0F5">LavenderBlush1</option><option style="background-color: #EEE0E5;" value="EEE0E5">LavenderBlush2</option><option style="background-color: #CDC1C5;" value="CDC1C5">LavenderBlush3</option><option style="background-color: #8B8386;" value="8B8386">LavenderBlush4</option><option style="background-color: #FFE4E1;" value="FFE4E1">MistyRose1</option><option style="background-color: #EED5D2;" value="EED5D2">MistyRose2</option><option style="background-color: #CDB7B5;" value="CDB7B5">MistyRose3</option><option style="background-color: #8B7D7B;" value="8B7D7B">MistyRose4</option><option style="background-color: #F0FFFF;" value="F0FFFF">Azure1</option><option style="background-color: #E0EEEE;" value="E0EEEE">Azure2</option><option style="background-color: #C1CDCD;" value="C1CDCD">Azure3</option><option style="background-color: #838B8B;" value="838B8B">Azure4</option><option style="background-color: #836FFF;" value="836FFF">SlateBlue1</option><option style="background-color: #7A67EE;" value="7A67EE">SlateBlue2</option><option style="background-color: #6959CD;" value="6959CD">SlateBlue3</option><option style="background-color: #473C8B;" value="473C8B">SlateBlue4</option><option style="background-color: #4876FF;" value="4876FF">RoyalBlue1</option><option style="background-color: #436EEE;" value="436EEE">RoyalBlue2</option><option style="background-color: #3A5FCD;" value="3A5FCD">RoyalBlue3</option><option style="background-color: #27408B;" value="27408B">RoyalBlue4</option><option style="background-color: #0000FF;" value="0000FF">Blue1</option><option style="background-color: #0000EE;" value="0000EE">Blue2</option><option style="background-color: #0000CD;" value="0000CD">Blue3</option><option style="background-color: #00008B;" value="00008B">Blue4</option><option style="background-color: #1E90FF;" value="1E90FF">DodgerBlue1</option><option style="background-color: #1C86EE;" value="1C86EE">DodgerBlue2</option><option style="background-color: #1874CD;" value="1874CD">DodgerBlue3</option><option style="background-color: #104E8B;" value="104E8B">DodgerBlue4</option><option style="background-color: #63B8FF;" value="63B8FF">SteelBlue1</option><option style="background-color: #5CACEE;" value="5CACEE">SteelBlue2</option><option style="background-color: #4F94CD;" value="4F94CD">SteelBlue3</option><option style="background-color: #36648B;" value="36648B">SteelBlue4</option><option style="background-color: #00BFFF;" value="00BFFF">DeepSkyBlue1</option><option style="background-color: #00B2EE;" value="00B2EE">DeepSkyBlue2</option><option style="background-color: #009ACD;" value="009ACD">DeepSkyBlue3</option><option style="background-color: #00688B;" value="00688B">DeepSkyBlue4</option><option style="background-color: #87CEFF;" value="87CEFF">SkyBlue1</option><option style="background-color: #7EC0EE;" value="7EC0EE">SkyBlue2</option><option style="background-color: #6CA6CD;" value="6CA6CD">SkyBlue3</option><option style="background-color: #4A708B;" value="4A708B">SkyBlue4</option><option style="background-color: #B0E2FF;" value="B0E2FF">LightSkyBlue1</option><option style="background-color: #A4D3EE;" value="A4D3EE">LightSkyBlue2</option><option style="background-color: #8DB6CD;" value="8DB6CD">LightSkyBlue3</option><option style="background-color: #607B8B;" value="607B8B">LightSkyBlue4</option><option style="background-color: #C6E2FF;" value="C6E2FF">SlateGray1</option><option style="background-color: #B9D3EE;" value="B9D3EE">SlateGray2</option><option style="background-color: #9FB6CD;" value="9FB6CD">SlateGray3</option><option style="background-color: #6C7B8B;" value="6C7B8B">SlateGray4</option><option style="background-color: #CAE1FF;" value="CAE1FF">LightSteelBlue1</option><option style="background-color: #BCD2EE;" value="BCD2EE">LightSteelBlue2</option><option style="background-color: #A2B5CD;" value="A2B5CD">LightSteelBlue3</option><option style="background-color: #6E7B8B;" value="6E7B8B">LightSteelBlue4</option><option style="background-color: #BFEFFF;" value="BFEFFF">LightBlue1</option><option style="background-color: #B2DFEE;" value="B2DFEE">LightBlue2</option><option style="background-color: #9AC0CD;" value="9AC0CD">LightBlue3</option><option style="background-color: #68838B;" value="68838B">LightBlue4</option><option style="background-color: #E0FFFF;" value="E0FFFF">LightCyan1</option><option style="background-color: #D1EEEE;" value="D1EEEE">LightCyan2</option><option style="background-color: #B4CDCD;" value="B4CDCD">LightCyan3</option><option style="background-color: #7A8B8B;" value="7A8B8B">LightCyan4</option><option style="background-color: #BBFFFF;" value="BBFFFF">PaleTurquoise1</option><option style="background-color: #AEEEEE;" value="AEEEEE">PaleTurquoise2</option><option style="background-color: #96CDCD;" value="96CDCD">PaleTurquoise3</option><option style="background-color: #668B8B;" value="668B8B">PaleTurquoise4</option><option style="background-color: #98F5FF;" value="98F5FF">CadetBlue1</option><option style="background-color: #8EE5EE;" value="8EE5EE">CadetBlue2</option><option style="background-color: #7AC5CD;" value="7AC5CD">CadetBlue3</option><option style="background-color: #53868B;" value="53868B">CadetBlue4</option><option style="background-color: #00F5FF;" value="00F5FF">Turquoise1</option><option style="background-color: #00E5EE;" value="00E5EE">Turquoise2</option><option style="background-color: #00C5CD;" value="00C5CD">Turquoise3</option><option style="background-color: #00868B;" value="00868B">Turquoise4</option><option style="background-color: #00FFFF;" value="00FFFF">Cyan1</option><option style="background-color: #00EEEE;" value="00EEEE">Cyan2</option><option style="background-color: #00CDCD;" value="00CDCD">Cyan3</option><option style="background-color: #008B8B;" value="008B8B">Cyan4</option><option style="background-color: #97FFFF;" value="97FFFF">DarkSlateGray1</option><option style="background-color: #8DEEEE;" value="8DEEEE">DarkSlateGray2</option><option style="background-color: #79CDCD;" value="79CDCD">DarkSlateGray3</option><option style="background-color: #528B8B;" value="528B8B">DarkSlateGray4</option><option style="background-color: #7FFFD4;" value="7FFFD4">Aquamarine1</option><option style="background-color: #76EEC6;" value="76EEC6">Aquamarine2</option><option style="background-color: #66CDAA;" value="66CDAA">Aquamarine3</option><option style="background-color: #458B74;" value="458B74">Aquamarine4</option><option style="background-color: #C1FFC1;" value="C1FFC1">DarkSeaGreen1</option><option style="background-color: #B4EEB4;" value="B4EEB4">DarkSeaGreen2</option><option style="background-color: #9BCD9B;" value="9BCD9B">DarkSeaGreen3</option><option style="background-color: #698B69;" value="698B69">DarkSeaGreen4</option><option style="background-color: #54FF9F;" value="54FF9F">SeaGreen1</option><option style="background-color: #4EEE94;" value="4EEE94">SeaGreen2</option><option style="background-color: #43CD80;" value="43CD80">SeaGreen3</option><option style="background-color: #2E8B57;" value="2E8B57">SeaGreen4</option><option style="background-color: #9AFF9A;" value="9AFF9A">PaleGreen1</option><option style="background-color: #90EE90;" value="90EE90">PaleGreen2</option><option style="background-color: #7CCD7C;" value="7CCD7C">PaleGreen3</option><option style="background-color: #548B54;" value="548B54">PaleGreen4</option><option style="background-color: #00FF7F;" value="00FF7F">SpringGreen1</option><option style="background-color: #00EE76;" value="00EE76">SpringGreen2</option><option style="background-color: #00CD66;" value="00CD66">SpringGreen3</option><option style="background-color: #008B45;" value="008B45">SpringGreen4</option><option style="background-color: #00FF00;" value="00FF00">Green1</option><option style="background-color: #00EE00;" value="00EE00">Green2</option><option style="background-color: #00CD00;" value="00CD00">Green3</option><option style="background-color: #008B00;" value="008B00">Green4</option><option style="background-color: #7FFF00;" value="7FFF00">Chartreuse1</option><option style="background-color: #76EE00;" value="76EE00">Chartreuse2</option><option style="background-color: #66CD00;" value="66CD00">Chartreuse3</option><option style="background-color: #458B00;" value="458B00">Chartreuse4</option><option style="background-color: #C0FF3E;" value="C0FF3E">OliveDrab1</option><option style="background-color: #B3EE3A;" value="B3EE3A">OliveDrab2</option><option style="background-color: #9ACD32;" value="9ACD32">OliveDrab3</option><option style="background-color: #698B22;" value="698B22">OliveDrab4</option><option style="background-color: #CAFF70;" value="CAFF70">DarkOliveGreen1</option><option style="background-color: #BCEE68;" value="BCEE68">DarkOliveGreen2</option><option style="background-color: #A2CD5A;" value="A2CD5A">DarkOliveGreen3</option><option style="background-color: #6E8B3D;" value="6E8B3D">DarkOliveGreen4</option><option style="background-color: #FFF68F;" value="FFF68F">Khaki1</option><option style="background-color: #EEE685;" value="EEE685">Khaki2</option><option style="background-color: #CDC673;" value="CDC673">Khaki3</option><option style="background-color: #8B864E;" value="8B864E">Khaki4</option><option style="background-color: #FFEC8B;" value="FFEC8B">LightGoldenrod1</option><option style="background-color: #EEDC82;" value="EEDC82">LightGoldenrod2</option><option style="background-color: #CDBE70;" value="CDBE70">LightGoldenrod3</option><option style="background-color: #8B814C;" value="8B814C">LightGoldenrod4</option><option style="background-color: #FFFFE0;" value="FFFFE0">LightYellow1</option><option style="background-color: #EEEED1;" value="EEEED1">LightYellow2</option><option style="background-color: #CDCDB4;" value="CDCDB4">LightYellow3</option><option style="background-color: #8B8B7A;" value="8B8B7A">LightYellow4</option><option style="background-color: #FFFF00;" value="FFFF00">Yellow1</option><option style="background-color: #EEEE00;" value="EEEE00">Yellow2</option><option style="background-color: #CDCD00;" value="CDCD00">Yellow3</option><option style="background-color: #8B8B00;" value="8B8B00">Yellow4</option><option style="background-color: #FFD700;" value="FFD700">Gold1</option><option style="background-color: #EEC900;" value="EEC900">Gold2</option><option style="background-color: #CDAD00;" value="CDAD00">Gold3</option><option style="background-color: #8B7500;" value="8B7500">Gold4</option><option style="background-color: #FFC125;" value="FFC125">Goldenrod1</option><option style="background-color: #EEB422;" value="EEB422">Goldenrod2</option><option style="background-color: #CD9B1D;" value="CD9B1D">Goldenrod3</option><option style="background-color: #8B6914;" value="8B6914">Goldenrod4</option><option style="background-color: #FFB90F;" value="FFB90F">DarkGoldenrod1</option><option style="background-color: #EEAD0E;" value="EEAD0E">DarkGoldenrod2</option><option style="background-color: #CD950C;" value="CD950C">DarkGoldenrod3</option><option style="background-color: #8B658B;" value="8B658B">DarkGoldenrod4</option><option style="background-color: #FFC1C1;" value="FFC1C1">RosyBrown1</option><option style="background-color: #EEB4B4;" value="EEB4B4">RosyBrown2</option><option style="background-color: #CD9B9B;" value="CD9B9B">RosyBrown3</option><option style="background-color: #8B6969;" value="8B6969">RosyBrown4</option><option style="background-color: #FF6A6A;" value="FF6A6A">IndianRed1</option><option style="background-color: #EE6363;" value="EE6363">IndianRed2</option><option style="background-color: #CD5555;" value="CD5555">IndianRed3</option><option style="background-color: #8B3A3A;" value="8B3A3A">IndianRed4</option><option style="background-color: #FF8247;" value="FF8247">Sienna1</option><option style="background-color: #EE7942;" value="EE7942">Sienna2</option><option style="background-color: #CD6839;" value="CD6839">Sienna3</option><option style="background-color: #8B4726;" value="8B4726">Sienna4</option><option style="background-color: #FFD39B;" value="FFD39B">Burlywood1</option><option style="background-color: #EEC591;" value="EEC591">Burlywood2</option><option style="background-color: #CDAA7D;" value="CDAA7D">Burlywood3</option><option style="background-color: #8B7355;" value="8B7355">Burlywood4</option><option style="background-color: #FFE7BA;" value="FFE7BA">Wheat1</option><option style="background-color: #EED8AE;" value="EED8AE">Wheat2</option><option style="background-color: #CDBA96;" value="CDBA96">Wheat3</option><option style="background-color: #8B7E66;" value="8B7E66">Wheat4</option><option style="background-color: #FFA54F;" value="FFA54F">Tan1</option><option style="background-color: #EE9A49;" value="EE9A49">Tan2</option><option style="background-color: #CD853F;" value="CD853F">Tan3</option><option style="background-color: #8B5A2B;" value="8B5A2B">Tan4</option><option style="background-color: #FF7F24;" value="FF7F24">Chocolate1</option><option style="background-color: #EE7621;" value="EE7621">Chocolate2</option><option style="background-color: #CD661D;" value="CD661D">Chocolate3</option><option style="background-color: #8B4513;" value="8B4513">Chocolate4</option><option style="background-color: #FF3030;" value="FF3030">Firebrick1</option><option style="background-color: #EE2C2C;" value="EE2C2C">Firebrick2</option><option style="background-color: #CD2626;" value="CD2626">Firebrick3</option><option style="background-color: #8B1A1A;" value="8B1A1A">Firebrick4</option><option style="background-color: #FF4040;" value="FF4040">Brown1</option><option style="background-color: #EE3B3B;" value="EE3B3B">Brown2</option><option style="background-color: #CD3333;" value="CD3333">Brown3</option><option style="background-color: #8B2323;" value="8B2323">Brown4</option><option style="background-color: #FF8C69;" value="FF8C69">Salmon1</option><option style="background-color: #EE8262;" value="EE8262">Salmon2</option><option style="background-color: #CD7054;" value="CD7054">Salmon3</option><option style="background-color: #8B4C39;" value="8B4C39">Salmon4</option><option style="background-color: #FFA07A;" value="FFA07A">LightSalmon1</option><option style="background-color: #EE9572;" value="EE9572">LightSalmon2</option><option style="background-color: #CD8162;" value="CD8162">LightSalmon3</option><option style="background-color: #8B5742;" value="8B5742">LightSalmon4</option><option style="background-color: #FFA500;" value="FFA500">Orange1</option><option style="background-color: #EE9A00;" value="EE9A00">Orange2</option><option style="background-color: #CD8500;" value="CD8500">Orange3</option><option style="background-color: #8B5A00;" value="8B5A00">Orange4</option><option style="background-color: #FF7F00;" value="FF7F00">DarkOrange1</option><option style="background-color: #EE7600;" value="EE7600">DarkOrange2</option><option style="background-color: #CD6600;" value="CD6600">DarkOrange3</option><option style="background-color: #8B4500;" value="8B4500">DarkOrange4</option><option style="background-color: #FF7256;" value="FF7256">Coral1</option><option style="background-color: #EE6A50;" value="EE6A50">Coral2</option><option style="background-color: #CD5B45;" value="CD5B45">Coral3</option><option style="background-color: #8B3E2F;" value="8B3E2F">Coral4</option><option style="background-color: #FF6347;" value="FF6347">Tomato1</option><option style="background-color: #EE5C42;" value="EE5C42">Tomato2</option><option style="background-color: #CD4F39;" value="CD4F39">Tomato3</option><option style="background-color: #8B3626;" value="8B3626">Tomato4</option><option style="background-color: #FF4500;" value="FF4500">OrangeRed1</option><option style="background-color: #EE4000;" value="EE4000">OrangeRed2</option><option style="background-color: #CD3700;" value="CD3700">OrangeRed3</option><option style="background-color: #8B2500;" value="8B2500">OrangeRed4</option><option style="background-color: #FF0000;" value="FF0000">Red1</option><option style="background-color: #EE0000;" value="EE0000">Red2</option><option style="background-color: #CD0000;" value="CD0000">Red3</option><option style="background-color: #8B0000;" value="8B0000">Red4</option><option style="background-color: #FF1493;" value="FF1493">DeepPink1</option><option style="background-color: #EE1289;" value="EE1289">DeepPink2</option><option style="background-color: #CD1076;" value="CD1076">DeepPink3</option><option style="background-color: #8B0A50;" value="8B0A50">DeepPink4</option><option style="background-color: #FF6EB4;" value="FF6EB4">HotPink1</option><option style="background-color: #EE6AA7;" value="EE6AA7">HotPink2</option><option style="background-color: #CD6090;" value="CD6090">HotPink3</option><option style="background-color: #8B3A62;" value="8B3A62">HotPink4</option><option style="background-color: #FFB5C5;" value="FFB5C5">Pink1</option><option style="background-color: #EEA9B8;" value="EEA9B8">Pink2</option><option style="background-color: #CD919E;" value="CD919E">Pink3</option><option style="background-color: #8B636C;" value="8B636C">Pink4</option><option style="background-color: #FFAEB9;" value="FFAEB9">LightPink1</option><option style="background-color: #EEA2AD;" value="EEA2AD">LightPink2</option><option style="background-color: #CD8C95;" value="CD8C95">LightPink3</option><option style="background-color: #8B5F65;" value="8B5F65">LightPink4</option><option style="background-color: #FF82AB;" value="FF82AB">PaleVioletRed1</option><option style="background-color: #EE799F;" value="EE799F">PaleVioletRed2</option><option style="background-color: #CD6889;" value="CD6889">PaleVioletRed3</option><option style="background-color: #8B475D;" value="8B475D">PaleVioletRed4</option><option style="background-color: #FF34B3;" value="FF34B3">Maroon1</option><option style="background-color: #EE30A7;" value="EE30A7">Maroon2</option><option style="background-color: #CD2990;" value="CD2990">Maroon3</option><option style="background-color: #8B1C62;" value="8B1C62">Maroon4</option><option style="background-color: #FF3E96;" value="FF3E96">VioletRed1</option><option style="background-color: #EE3A8C;" value="EE3A8C">VioletRed2</option><option style="background-color: #CD3278;" value="CD3278">VioletRed3</option><option style="background-color: #8B2252;" value="8B2252">VioletRed4</option><option style="background-color: #FF00FF;" value="FF00FF">Magenta1</option><option style="background-color: #EE00EE;" value="EE00EE">Magenta2</option><option style="background-color: #CD00CD;" value="CD00CD">Magenta3</option><option style="background-color: #8B008B;" value="8B008B">Magenta4</option><option style="background-color: #FF83FA;" value="FF83FA">Orchid1</option><option style="background-color: #EE7AE9;" value="EE7AE9">Orchid2</option><option style="background-color: #CD69C9;" value="CD69C9">Orchid3</option><option style="background-color: #8B4789;" value="8B4789">Orchid4</option><option style="background-color: #FFBBFF;" value="FFBBFF">Plum1</option><option style="background-color: #EEAEEE;" value="EEAEEE">Plum2</option><option style="background-color: #CD96CD;" value="CD96CD">Plum3</option><option style="background-color: #8B668B;" value="8B668B">Plum4</option><option style="background-color: #E066FF;" value="E066FF">MediumOrchid1</option><option style="background-color: #D15FEE;" value="D15FEE">MediumOrchid2</option><option style="background-color: #B452CD;" value="B452CD">MediumOrchid3</option><option style="background-color: #7A378B;" value="7A378B">MediumOrchid4</option><option style="background-color: #BF3EFF;" value="BF3EFF">DarkOrchid1</option><option style="background-color: #B23AEE;" value="B23AEE">DarkOrchid2</option><option style="background-color: #9A32CD;" value="9A32CD">DarkOrchid3</option><option style="background-color: #68228B;" value="68228B">DarkOrchid4</option><option style="background-color: #9B30FF;" value="9B30FF">Purple1</option><option style="background-color: #912CEE;" value="912CEE">Purple2</option><option style="background-color: #7D26CD;" value="7D26CD">Purple3</option><option style="background-color: #551A8B;" value="551A8B">Purple4</option><option style="background-color: #AB82FF;" value="AB82FF">MediumPurple1</option><option style="background-color: #9F79EE;" value="9F79EE">MediumPurple2</option><option style="background-color: #8968CD;" value="8968CD">MediumPurple3</option><option style="background-color: #5D478B;" value="5D478B">MediumPurple4</option><option style="background-color: #FFE1FF;" value="FFE1FF">Thistle1</option><option style="background-color: #EED2EE;" value="EED2EE">Thistle2</option><option style="background-color: #CDB5CD;" value="CDB5CD">Thistle3</option><option style="background-color: #8B7B8B;" value="8B7B8B">Thistle4</option><option style="background-color: #1C1C1C;" value="1C1C1C">grey11</option><option style="background-color: #363636;" value="363636">grey21</option><option style="background-color: #4F4F4F;" value="4F4F4F">grey31</option><option style="background-color: #696969;" value="696969">grey41</option><option style="background-color: #828282;" value="828282">grey51</option><option style="background-color: #9C9C9C;" value="9C9C9C">grey61</option><option style="background-color: #B5B5B5;" value="B5B5B5">grey71</option><option style="background-color: #CFCFCF;" value="CFCFCF">gray81</option><option style="background-color: #E8E8E8;" value="E8E8E8">gray91</option><option style="background-color: #A9A9A9;" value="A9A9A9">DarkGrey</option><option style="background-color: #00008B;" value="00008B">DarkBlue</option><option style="background-color: #008B8B;" value="008B8B">DarkCyan</option><option style="background-color: #8B008B;" value="8B008B">DarkMagenta</option><option style="background-color: #8B0000;" value="8B0000">DarkRed</option><option style="background-color: #90EE90;" value="90EE90">LightGreen</option>');
+</script></select> &nbsp; <img src=http://www.e-reading.co.uk//images/bg.jpg height=16 onClick="DisplaySettings('bgsettings')" alt="цвет фона" style="vertical-align: bottom;"> <select id=bgsettings name=backgroundcolor onchange="ReaderSettings();" style="display: none;">
+<option value=0>цвет фона</option><script type="text/javascript" language="javascript">
+document.write('<option style="background-color: #FFFFFF;" value="FFFFFF">White</option>');
+document.write('<option style="background-color: #C0C0C0;" value="C0C0C0">Silver</option>');
+document.write('<option style="background-color: #808080;" value="808080">Grey</option>');
+document.write('<option style="background-color: #000000;" value="000000">Black</option>');
+document.write('<option style="background-color: #FF0000;" value="FF0000">Red</option>');
+document.write('<option style="background-color: #FFFF00;" value="FFFF00">Yellow</option>');
+document.write('<option style="background-color: #808000;" value="808000">Olive</option>');
+document.write('<option style="background-color: #00FF00;" value="008000">Lime</option>');
+document.write('<option style="background-color: #008000;" value="008000">Green</option>');
+document.write('<option style="background-color: #0000FF;" value="0000FF">Blue</option>');
+document.write('<option style="background-color: #000080;" value="000080">Navy</option>');
+
+document.write('<option style="background-color: #FFFAFA;" value="FFFAFA">Snow</option><option style="background-color: #F8F8FF;" value="F8F8FF">GhostWhite</option><option style="background-color: #F5F5F5;" value="F5F5F5">WhiteSmoke</option><option style="background-color: #DCDCDC;" value="DCDCDC">Gainsboro</option><option style="background-color: #FFFAF0;" value="FFFAF0">FloralWhite</option><option style="background-color: #FDF5E6;" value="FDF5E6">OldLace</option><option style="background-color: #FAF0E6;" value="FAF0E6">Linen</option><option style="background-color: #FAEBD7;" value="FAEBD7">AntiqueWhite</option><option style="background-color: #FFEFD5;" value="FFEFD5">PapayaWhip</option><option style="background-color: #FFEBCD;" value="FFEBCD">BlanchedAlmond</option><option style="background-color: #FFE4C4;" value="FFE4C4">Bisque</option><option style="background-color: #FFDAB9;" value="FFDAB9">PeachPuff</option><option style="background-color: #FFDEAD;" value="FFDEAD">NavajoWhite</option><option style="background-color: #FFE4B5;" value="FFE4B5">Moccasin</option><option style="background-color: #FFF8DC;" value="FFF8DC">Cornsilk</option><option style="background-color: #FFFFF0;" value="FFFFF0">Ivory</option><option style="background-color: #FFFACD;" value="FFFACD">LemonChiffon</option><option style="background-color: #FFF5EE;" value="FFF5EE">Seashell</option><option style="background-color: #F0FFF0;" value="F0FFF0">Honeydew</option><option style="background-color: #F5FFFA;" value="F5FFFA">MintCream</option><option style="background-color: #F0FFFF;" value="F0FFFF">Azure</option><option style="background-color: #F0F8FF;" value="F0F8FF">AliceBlue</option><option style="background-color: #E6E6FA;" value="E6E6FA">lavender</option><option style="background-color: #FFF0F5;" value="FFF0F5">LavenderBlush</option><option style="background-color: #FFE4E1;" value="FFE4E1">MistyRose</option><option style="background-color: #FFFFFF;" value="FFFFFF">White</option><option style="background-color: #000000;" value="000000">Black</option><option style="background-color: #2F4F4F;" value="2F4F4F">DarkSlateGray</option><option style="background-color: #696969;" value="696969">DimGrey</option><option style="background-color: #708090;" value="708090">SlateGrey</option><option style="background-color: #778899;" value="778899">LightSlateGray</option><option style="background-color: #BEBEBE;" value="BEBEBE">Grey</option><option style="background-color: #D3D3D3;" value="D3D3D3">LightGray</option><option style="background-color: #191970;" value="191970">MidnightBlue</option><option style="background-color: #000080;" value="000080">NavyBlue</option><option style="background-color: #6495ED;" value="6495ED">CornflowerBlue</option><option style="background-color: #483D8B;" value="483D8B">DarkSlateBlue</option><option style="background-color: #6A5ACD;" value="6A5ACD">SlateBlue</option><option style="background-color: #7B68EE;" value="7B68EE">MediumSlateBlue</option><option style="background-color: #8470FF;" value="8470FF">LightSlateBlue</option><option style="background-color: #0000CD;" value="0000CD">MediumBlue</option><option style="background-color: #4169E1;" value="4169E1">RoyalBlue</option><option style="background-color: #0000FF;" value="0000FF">Blue</option><option style="background-color: #1E90FF;" value="1E90FF">DodgerBlue</option><option style="background-color: #00BFFF;" value="00BFFF">DeepSkyBlue</option><option style="background-color: #87CEEB;" value="87CEEB">SkyBlue</option><option style="background-color: #87CEFA;" value="87CEFA">LightSkyBlue</option><option style="background-color: #4682B4;" value="4682B4">SteelBlue</option><option style="background-color: #B0C4DE;" value="B0C4DE">LightSteelBlue</option><option style="background-color: #ADD8E6;" value="ADD8E6">LightBlue</option><option style="background-color: #B0E0E6;" value="B0E0E6">PowderBlue</option><option style="background-color: #AFEEEE;" value="AFEEEE">PaleTurquoise</option><option style="background-color: #00CED1;" value="00CED1">DarkTurquoise</option><option style="background-color: #48D1CC;" value="48D1CC">MediumTurquoise</option><option style="background-color: #40E0D0;" value="40E0D0">Turquoise</option><option style="background-color: #00FFFF;" value="00FFFF">Cyan</option><option style="background-color: #E0FFFF;" value="E0FFFF">LightCyan</option><option style="background-color: #5F9EA0;" value="5F9EA0">CadetBlue</option><option style="background-color: #66CDAA;" value="66CDAA">MediumAquamarine</option><option style="background-color: #7FFFD4;" value="7FFFD4">Aquamarine</option><option style="background-color: #006400;" value="006400">DarkGreen</option><option style="background-color: #556B2F;" value="556B2F">DarkOliveGreen</option><option style="background-color: #8FBC8F;" value="8FBC8F">DarkSeaGreen</option><option style="background-color: #2E8B57;" value="2E8B57">SeaGreen</option><option style="background-color: #3CB371;" value="3CB371">MediumSeaGreen</option><option style="background-color: #20B2AA;" value="20B2AA">LightSeaGreen</option><option style="background-color: #98FB98;" value="98FB98">PaleGreen</option><option style="background-color: #00FF7F;" value="00FF7F">SpringGreen</option><option style="background-color: #7CFC00;" value="7CFC00">LawnGreen</option><option style="background-color: #00FF00;" value="00FF00">Green</option><option style="background-color: #7FFF00;" value="7FFF00">Chartreuse</option><option style="background-color: #00FA9A;" value="00FA9A">MedSpringGreen</option><option style="background-color: #ADFF2F;" value="ADFF2F">GreenYellow</option><option style="background-color: #32CD32;" value="32CD32">LimeGreen</option><option style="background-color: #9ACD32;" value="9ACD32">YellowGreen</option><option style="background-color: #228B22;" value="228B22">ForestGreen</option><option style="background-color: #6B8E23;" value="6B8E23">OliveDrab</option><option style="background-color: #BDB76B;" value="BDB76B">DarkKhaki</option><option style="background-color: #EEE8AA;" value="EEE8AA">PaleGoldenrod</option><option style="background-color: #FAFAD2;" value="FAFAD2">LtGoldenrodYello</option><option style="background-color: #FFFFE0;" value="FFFFE0">LightYellow</option><option style="background-color: #FFFF00;" value="FFFF00">Yellow</option><option style="background-color: #FFD700;" value="FFD700">Gold</option><option style="background-color: #EEDD82;" value="EEDD82">LightGoldenrod</option><option style="background-color: #DAA520;" value="DAA520">goldenrod</option><option style="background-color: #B8860B;" value="B8860B">DarkGoldenrod</option><option style="background-color: #BC8F8F;" value="BC8F8F">RosyBrown</option><option style="background-color: #CD5C5C;" value="CD5C5C">IndianRed</option><option style="background-color: #8B4513;" value="8B4513">SaddleBrown</option><option style="background-color: #A0522D;" value="A0522D">Sienna</option><option style="background-color: #CD853F;" value="CD853F">Peru</option><option style="background-color: #DEB887;" value="DEB887">Burlywood</option><option style="background-color: #F5F5DC;" value="F5F5DC">Beige</option><option style="background-color: #F5DEB3;" value="F5DEB3">Wheat</option><option style="background-color: #F4A460;" value="F4A460">SandyBrown</option><option style="background-color: #D2B48C;" value="D2B48C">Tan</option><option style="background-color: #D2691E;" value="D2691E">Chocolate</option><option style="background-color: #B22222;" value="B22222">Firebrick</option><option style="background-color: #A52A2A;" value="A52A2A">Brown</option><option style="background-color: #E9967A;" value="E9967A">DarkSalmon</option><option style="background-color: #FA8072;" value="FA8072">Salmon</option><option style="background-color: #FFA07A;" value="FFA07A">LightSalmon</option><option style="background-color: #FFA500;" value="FFA500">Orange</option><option style="background-color: #FF8C00;" value="FF8C00">DarkOrange</option><option style="background-color: #FF7F50;" value="FF7F50">Coral</option><option style="background-color: #F08080;" value="F08080">LightCoral</option><option style="background-color: #FF6347;" value="FF6347">Tomato</option><option style="background-color: #FF4500;" value="FF4500">OrangeRed</option><option style="background-color: #FF0000;" value="FF0000">Red</option><option style="background-color: #FF69B4;" value="FF69B4">HotPink</option><option style="background-color: #FF1493;" value="FF1493">DeepPink</option><option style="background-color: #FFC0CB;" value="FFC0CB">Pink</option><option style="background-color: #FFB6C1;" value="FFB6C1">LightPink</option><option style="background-color: #DB7093;" value="DB7093">PaleVioletRed</option><option style="background-color: #B03060;" value="B03060">Maroon</option><option style="background-color: #C71585;" value="C71585">MediumVioletRed</option><option style="background-color: #D02090;" value="D02090">VioletRed</option><option style="background-color: #FF00FF;" value="FF00FF">Magenta</option><option style="background-color: #EE82EE;" value="EE82EE">Violet</option><option style="background-color: #DDA0DD;" value="DDA0DD">Plum</option><option style="background-color: #DA70D6;" value="DA70D6">Orchid</option><option style="background-color: #BA55D3;" value="BA55D3">MediumOrchid</option><option style="background-color: #9932CC;" value="9932CC">DarkOrchid</option><option style="background-color: #9400D3;" value="9400D3">DarkViolet</option><option style="background-color: #8A2BE2;" value="8A2BE2">BlueViolet</option><option style="background-color: #A020F0;" value="A020F0">Purple</option><option style="background-color: #9370DB;" value="9370DB">MediumPurple</option><option style="background-color: #D8BFD8;" value="D8BFD8">Thistle</option><option style="background-color: #FFFAFA;" value="FFFAFA">Snow1</option><option style="background-color: #EEE9E9;" value="EEE9E9">Snow2</option><option style="background-color: #CDC9C9;" value="CDC9C9">Snow3</option><option style="background-color: #8B8989;" value="8B8989">Snow4</option><option style="background-color: #FFF5EE;" value="FFF5EE">Seashell1</option><option style="background-color: #EEE5DE;" value="EEE5DE">Seashell2</option><option style="background-color: #CDC5BF;" value="CDC5BF">Seashell3</option><option style="background-color: #8B8682;" value="8B8682">Seashell4</option><option style="background-color: #FFEFDB;" value="FFEFDB">AntiqueWhite1</option><option style="background-color: #EEDFCC;" value="EEDFCC">AntiqueWhite2</option><option style="background-color: #CDC0B0;" value="CDC0B0">AntiqueWhite3</option><option style="background-color: #8B8378;" value="8B8378">AntiqueWhite4</option><option style="background-color: #FFE4C4;" value="FFE4C4">Bisque1</option><option style="background-color: #EED5B7;" value="EED5B7">Bisque2</option><option style="background-color: #CDB79E;" value="CDB79E">Bisque3</option><option style="background-color: #8B7D6B;" value="8B7D6B">Bisque4</option><option style="background-color: #FFDAB9;" value="FFDAB9">PeachPuff1</option><option style="background-color: #EECBAD;" value="EECBAD">PeachPuff2</option><option style="background-color: #CDAF95;" value="CDAF95">PeachPuff3</option><option style="background-color: #8B7765;" value="8B7765">PeachPuff4</option><option style="background-color: #FFDEAD;" value="FFDEAD">NavajoWhite1</option><option style="background-color: #EECFA1;" value="EECFA1">NavajoWhite2</option><option style="background-color: #CDB38B;" value="CDB38B">NavajoWhite3</option><option style="background-color: #8B795E;" value="8B795E">NavajoWhite4</option><option style="background-color: #FFFACD;" value="FFFACD">LemonChiffon1</option><option style="background-color: #EEE9BF;" value="EEE9BF">LemonChiffon2</option><option style="background-color: #CDC9A5;" value="CDC9A5">LemonChiffon3</option><option style="background-color: #8B8970;" value="8B8970">LemonChiffon4</option><option style="background-color: #FFF8DC;" value="FFF8DC">Cornsilk1</option><option style="background-color: #EEE8CD;" value="EEE8CD">Cornsilk2</option><option style="background-color: #CDC8B1;" value="CDC8B1">Cornsilk3</option><option style="background-color: #8B8878;" value="8B8878">Cornsilk4</option><option style="background-color: #FFFFF0;" value="FFFFF0">Ivory1</option><option style="background-color: #EEEEE0;" value="EEEEE0">Ivory2</option><option style="background-color: #CDCDC1;" value="CDCDC1">Ivory3</option><option style="background-color: #8B8B83;" value="8B8B83">Ivory4</option><option style="background-color: #F0FFF0;" value="F0FFF0">Honeydew1</option><option style="background-color: #E0EEE0;" value="E0EEE0">Honeydew2</option><option style="background-color: #C1CDC1;" value="C1CDC1">Honeydew3</option><option style="background-color: #838B83;" value="838B83">Honeydew4</option><option style="background-color: #FFF0F5;" value="FFF0F5">LavenderBlush1</option><option style="background-color: #EEE0E5;" value="EEE0E5">LavenderBlush2</option><option style="background-color: #CDC1C5;" value="CDC1C5">LavenderBlush3</option><option style="background-color: #8B8386;" value="8B8386">LavenderBlush4</option><option style="background-color: #FFE4E1;" value="FFE4E1">MistyRose1</option><option style="background-color: #EED5D2;" value="EED5D2">MistyRose2</option><option style="background-color: #CDB7B5;" value="CDB7B5">MistyRose3</option><option style="background-color: #8B7D7B;" value="8B7D7B">MistyRose4</option><option style="background-color: #F0FFFF;" value="F0FFFF">Azure1</option><option style="background-color: #E0EEEE;" value="E0EEEE">Azure2</option><option style="background-color: #C1CDCD;" value="C1CDCD">Azure3</option><option style="background-color: #838B8B;" value="838B8B">Azure4</option><option style="background-color: #836FFF;" value="836FFF">SlateBlue1</option><option style="background-color: #7A67EE;" value="7A67EE">SlateBlue2</option><option style="background-color: #6959CD;" value="6959CD">SlateBlue3</option><option style="background-color: #473C8B;" value="473C8B">SlateBlue4</option><option style="background-color: #4876FF;" value="4876FF">RoyalBlue1</option><option style="background-color: #436EEE;" value="436EEE">RoyalBlue2</option><option style="background-color: #3A5FCD;" value="3A5FCD">RoyalBlue3</option><option style="background-color: #27408B;" value="27408B">RoyalBlue4</option><option style="background-color: #0000FF;" value="0000FF">Blue1</option><option style="background-color: #0000EE;" value="0000EE">Blue2</option><option style="background-color: #0000CD;" value="0000CD">Blue3</option><option style="background-color: #00008B;" value="00008B">Blue4</option><option style="background-color: #1E90FF;" value="1E90FF">DodgerBlue1</option><option style="background-color: #1C86EE;" value="1C86EE">DodgerBlue2</option><option style="background-color: #1874CD;" value="1874CD">DodgerBlue3</option><option style="background-color: #104E8B;" value="104E8B">DodgerBlue4</option><option style="background-color: #63B8FF;" value="63B8FF">SteelBlue1</option><option style="background-color: #5CACEE;" value="5CACEE">SteelBlue2</option><option style="background-color: #4F94CD;" value="4F94CD">SteelBlue3</option><option style="background-color: #36648B;" value="36648B">SteelBlue4</option><option style="background-color: #00BFFF;" value="00BFFF">DeepSkyBlue1</option><option style="background-color: #00B2EE;" value="00B2EE">DeepSkyBlue2</option><option style="background-color: #009ACD;" value="009ACD">DeepSkyBlue3</option><option style="background-color: #00688B;" value="00688B">DeepSkyBlue4</option><option style="background-color: #87CEFF;" value="87CEFF">SkyBlue1</option><option style="background-color: #7EC0EE;" value="7EC0EE">SkyBlue2</option><option style="background-color: #6CA6CD;" value="6CA6CD">SkyBlue3</option><option style="background-color: #4A708B;" value="4A708B">SkyBlue4</option><option style="background-color: #B0E2FF;" value="B0E2FF">LightSkyBlue1</option><option style="background-color: #A4D3EE;" value="A4D3EE">LightSkyBlue2</option><option style="background-color: #8DB6CD;" value="8DB6CD">LightSkyBlue3</option><option style="background-color: #607B8B;" value="607B8B">LightSkyBlue4</option><option style="background-color: #C6E2FF;" value="C6E2FF">SlateGray1</option><option style="background-color: #B9D3EE;" value="B9D3EE">SlateGray2</option><option style="background-color: #9FB6CD;" value="9FB6CD">SlateGray3</option><option style="background-color: #6C7B8B;" value="6C7B8B">SlateGray4</option><option style="background-color: #CAE1FF;" value="CAE1FF">LightSteelBlue1</option><option style="background-color: #BCD2EE;" value="BCD2EE">LightSteelBlue2</option><option style="background-color: #A2B5CD;" value="A2B5CD">LightSteelBlue3</option><option style="background-color: #6E7B8B;" value="6E7B8B">LightSteelBlue4</option><option style="background-color: #BFEFFF;" value="BFEFFF">LightBlue1</option><option style="background-color: #B2DFEE;" value="B2DFEE">LightBlue2</option><option style="background-color: #9AC0CD;" value="9AC0CD">LightBlue3</option><option style="background-color: #68838B;" value="68838B">LightBlue4</option><option style="background-color: #E0FFFF;" value="E0FFFF">LightCyan1</option><option style="background-color: #D1EEEE;" value="D1EEEE">LightCyan2</option><option style="background-color: #B4CDCD;" value="B4CDCD">LightCyan3</option><option style="background-color: #7A8B8B;" value="7A8B8B">LightCyan4</option><option style="background-color: #BBFFFF;" value="BBFFFF">PaleTurquoise1</option><option style="background-color: #AEEEEE;" value="AEEEEE">PaleTurquoise2</option><option style="background-color: #96CDCD;" value="96CDCD">PaleTurquoise3</option><option style="background-color: #668B8B;" value="668B8B">PaleTurquoise4</option><option style="background-color: #98F5FF;" value="98F5FF">CadetBlue1</option><option style="background-color: #8EE5EE;" value="8EE5EE">CadetBlue2</option><option style="background-color: #7AC5CD;" value="7AC5CD">CadetBlue3</option><option style="background-color: #53868B;" value="53868B">CadetBlue4</option><option style="background-color: #00F5FF;" value="00F5FF">Turquoise1</option><option style="background-color: #00E5EE;" value="00E5EE">Turquoise2</option><option style="background-color: #00C5CD;" value="00C5CD">Turquoise3</option><option style="background-color: #00868B;" value="00868B">Turquoise4</option><option style="background-color: #00FFFF;" value="00FFFF">Cyan1</option><option style="background-color: #00EEEE;" value="00EEEE">Cyan2</option><option style="background-color: #00CDCD;" value="00CDCD">Cyan3</option><option style="background-color: #008B8B;" value="008B8B">Cyan4</option><option style="background-color: #97FFFF;" value="97FFFF">DarkSlateGray1</option><option style="background-color: #8DEEEE;" value="8DEEEE">DarkSlateGray2</option><option style="background-color: #79CDCD;" value="79CDCD">DarkSlateGray3</option><option style="background-color: #528B8B;" value="528B8B">DarkSlateGray4</option><option style="background-color: #7FFFD4;" value="7FFFD4">Aquamarine1</option><option style="background-color: #76EEC6;" value="76EEC6">Aquamarine2</option><option style="background-color: #66CDAA;" value="66CDAA">Aquamarine3</option><option style="background-color: #458B74;" value="458B74">Aquamarine4</option><option style="background-color: #C1FFC1;" value="C1FFC1">DarkSeaGreen1</option><option style="background-color: #B4EEB4;" value="B4EEB4">DarkSeaGreen2</option><option style="background-color: #9BCD9B;" value="9BCD9B">DarkSeaGreen3</option><option style="background-color: #698B69;" value="698B69">DarkSeaGreen4</option><option style="background-color: #54FF9F;" value="54FF9F">SeaGreen1</option><option style="background-color: #4EEE94;" value="4EEE94">SeaGreen2</option><option style="background-color: #43CD80;" value="43CD80">SeaGreen3</option><option style="background-color: #2E8B57;" value="2E8B57">SeaGreen4</option><option style="background-color: #9AFF9A;" value="9AFF9A">PaleGreen1</option><option style="background-color: #90EE90;" value="90EE90">PaleGreen2</option><option style="background-color: #7CCD7C;" value="7CCD7C">PaleGreen3</option><option style="background-color: #548B54;" value="548B54">PaleGreen4</option><option style="background-color: #00FF7F;" value="00FF7F">SpringGreen1</option><option style="background-color: #00EE76;" value="00EE76">SpringGreen2</option><option style="background-color: #00CD66;" value="00CD66">SpringGreen3</option><option style="background-color: #008B45;" value="008B45">SpringGreen4</option><option style="background-color: #00FF00;" value="00FF00">Green1</option><option style="background-color: #00EE00;" value="00EE00">Green2</option><option style="background-color: #00CD00;" value="00CD00">Green3</option><option style="background-color: #008B00;" value="008B00">Green4</option><option style="background-color: #7FFF00;" value="7FFF00">Chartreuse1</option><option style="background-color: #76EE00;" value="76EE00">Chartreuse2</option><option style="background-color: #66CD00;" value="66CD00">Chartreuse3</option><option style="background-color: #458B00;" value="458B00">Chartreuse4</option><option style="background-color: #C0FF3E;" value="C0FF3E">OliveDrab1</option><option style="background-color: #B3EE3A;" value="B3EE3A">OliveDrab2</option><option style="background-color: #9ACD32;" value="9ACD32">OliveDrab3</option><option style="background-color: #698B22;" value="698B22">OliveDrab4</option><option style="background-color: #CAFF70;" value="CAFF70">DarkOliveGreen1</option><option style="background-color: #BCEE68;" value="BCEE68">DarkOliveGreen2</option><option style="background-color: #A2CD5A;" value="A2CD5A">DarkOliveGreen3</option><option style="background-color: #6E8B3D;" value="6E8B3D">DarkOliveGreen4</option><option style="background-color: #FFF68F;" value="FFF68F">Khaki1</option><option style="background-color: #EEE685;" value="EEE685">Khaki2</option><option style="background-color: #CDC673;" value="CDC673">Khaki3</option><option style="background-color: #8B864E;" value="8B864E">Khaki4</option><option style="background-color: #FFEC8B;" value="FFEC8B">LightGoldenrod1</option><option style="background-color: #EEDC82;" value="EEDC82">LightGoldenrod2</option><option style="background-color: #CDBE70;" value="CDBE70">LightGoldenrod3</option><option style="background-color: #8B814C;" value="8B814C">LightGoldenrod4</option><option style="background-color: #FFFFE0;" value="FFFFE0">LightYellow1</option><option style="background-color: #EEEED1;" value="EEEED1">LightYellow2</option><option style="background-color: #CDCDB4;" value="CDCDB4">LightYellow3</option><option style="background-color: #8B8B7A;" value="8B8B7A">LightYellow4</option><option style="background-color: #FFFF00;" value="FFFF00">Yellow1</option><option style="background-color: #EEEE00;" value="EEEE00">Yellow2</option><option style="background-color: #CDCD00;" value="CDCD00">Yellow3</option><option style="background-color: #8B8B00;" value="8B8B00">Yellow4</option><option style="background-color: #FFD700;" value="FFD700">Gold1</option><option style="background-color: #EEC900;" value="EEC900">Gold2</option><option style="background-color: #CDAD00;" value="CDAD00">Gold3</option><option style="background-color: #8B7500;" value="8B7500">Gold4</option><option style="background-color: #FFC125;" value="FFC125">Goldenrod1</option><option style="background-color: #EEB422;" value="EEB422">Goldenrod2</option><option style="background-color: #CD9B1D;" value="CD9B1D">Goldenrod3</option><option style="background-color: #8B6914;" value="8B6914">Goldenrod4</option><option style="background-color: #FFB90F;" value="FFB90F">DarkGoldenrod1</option><option style="background-color: #EEAD0E;" value="EEAD0E">DarkGoldenrod2</option><option style="background-color: #CD950C;" value="CD950C">DarkGoldenrod3</option><option style="background-color: #8B658B;" value="8B658B">DarkGoldenrod4</option><option style="background-color: #FFC1C1;" value="FFC1C1">RosyBrown1</option><option style="background-color: #EEB4B4;" value="EEB4B4">RosyBrown2</option><option style="background-color: #CD9B9B;" value="CD9B9B">RosyBrown3</option><option style="background-color: #8B6969;" value="8B6969">RosyBrown4</option><option style="background-color: #FF6A6A;" value="FF6A6A">IndianRed1</option><option style="background-color: #EE6363;" value="EE6363">IndianRed2</option><option style="background-color: #CD5555;" value="CD5555">IndianRed3</option><option style="background-color: #8B3A3A;" value="8B3A3A">IndianRed4</option><option style="background-color: #FF8247;" value="FF8247">Sienna1</option><option style="background-color: #EE7942;" value="EE7942">Sienna2</option><option style="background-color: #CD6839;" value="CD6839">Sienna3</option><option style="background-color: #8B4726;" value="8B4726">Sienna4</option><option style="background-color: #FFD39B;" value="FFD39B">Burlywood1</option><option style="background-color: #EEC591;" value="EEC591">Burlywood2</option><option style="background-color: #CDAA7D;" value="CDAA7D">Burlywood3</option><option style="background-color: #8B7355;" value="8B7355">Burlywood4</option><option style="background-color: #FFE7BA;" value="FFE7BA">Wheat1</option><option style="background-color: #EED8AE;" value="EED8AE">Wheat2</option><option style="background-color: #CDBA96;" value="CDBA96">Wheat3</option><option style="background-color: #8B7E66;" value="8B7E66">Wheat4</option><option style="background-color: #FFA54F;" value="FFA54F">Tan1</option><option style="background-color: #EE9A49;" value="EE9A49">Tan2</option><option style="background-color: #CD853F;" value="CD853F">Tan3</option><option style="background-color: #8B5A2B;" value="8B5A2B">Tan4</option><option style="background-color: #FF7F24;" value="FF7F24">Chocolate1</option><option style="background-color: #EE7621;" value="EE7621">Chocolate2</option><option style="background-color: #CD661D;" value="CD661D">Chocolate3</option><option style="background-color: #8B4513;" value="8B4513">Chocolate4</option><option style="background-color: #FF3030;" value="FF3030">Firebrick1</option><option style="background-color: #EE2C2C;" value="EE2C2C">Firebrick2</option><option style="background-color: #CD2626;" value="CD2626">Firebrick3</option><option style="background-color: #8B1A1A;" value="8B1A1A">Firebrick4</option><option style="background-color: #FF4040;" value="FF4040">Brown1</option><option style="background-color: #EE3B3B;" value="EE3B3B">Brown2</option><option style="background-color: #CD3333;" value="CD3333">Brown3</option><option style="background-color: #8B2323;" value="8B2323">Brown4</option><option style="background-color: #FF8C69;" value="FF8C69">Salmon1</option><option style="background-color: #EE8262;" value="EE8262">Salmon2</option><option style="background-color: #CD7054;" value="CD7054">Salmon3</option><option style="background-color: #8B4C39;" value="8B4C39">Salmon4</option><option style="background-color: #FFA07A;" value="FFA07A">LightSalmon1</option><option style="background-color: #EE9572;" value="EE9572">LightSalmon2</option><option style="background-color: #CD8162;" value="CD8162">LightSalmon3</option><option style="background-color: #8B5742;" value="8B5742">LightSalmon4</option><option style="background-color: #FFA500;" value="FFA500">Orange1</option><option style="background-color: #EE9A00;" value="EE9A00">Orange2</option><option style="background-color: #CD8500;" value="CD8500">Orange3</option><option style="background-color: #8B5A00;" value="8B5A00">Orange4</option><option style="background-color: #FF7F00;" value="FF7F00">DarkOrange1</option><option style="background-color: #EE7600;" value="EE7600">DarkOrange2</option><option style="background-color: #CD6600;" value="CD6600">DarkOrange3</option><option style="background-color: #8B4500;" value="8B4500">DarkOrange4</option><option style="background-color: #FF7256;" value="FF7256">Coral1</option><option style="background-color: #EE6A50;" value="EE6A50">Coral2</option><option style="background-color: #CD5B45;" value="CD5B45">Coral3</option><option style="background-color: #8B3E2F;" value="8B3E2F">Coral4</option><option style="background-color: #FF6347;" value="FF6347">Tomato1</option><option style="background-color: #EE5C42;" value="EE5C42">Tomato2</option><option style="background-color: #CD4F39;" value="CD4F39">Tomato3</option><option style="background-color: #8B3626;" value="8B3626">Tomato4</option><option style="background-color: #FF4500;" value="FF4500">OrangeRed1</option><option style="background-color: #EE4000;" value="EE4000">OrangeRed2</option><option style="background-color: #CD3700;" value="CD3700">OrangeRed3</option><option style="background-color: #8B2500;" value="8B2500">OrangeRed4</option><option style="background-color: #FF0000;" value="FF0000">Red1</option><option style="background-color: #EE0000;" value="EE0000">Red2</option><option style="background-color: #CD0000;" value="CD0000">Red3</option><option style="background-color: #8B0000;" value="8B0000">Red4</option><option style="background-color: #FF1493;" value="FF1493">DeepPink1</option><option style="background-color: #EE1289;" value="EE1289">DeepPink2</option><option style="background-color: #CD1076;" value="CD1076">DeepPink3</option><option style="background-color: #8B0A50;" value="8B0A50">DeepPink4</option><option style="background-color: #FF6EB4;" value="FF6EB4">HotPink1</option><option style="background-color: #EE6AA7;" value="EE6AA7">HotPink2</option><option style="background-color: #CD6090;" value="CD6090">HotPink3</option><option style="background-color: #8B3A62;" value="8B3A62">HotPink4</option><option style="background-color: #FFB5C5;" value="FFB5C5">Pink1</option><option style="background-color: #EEA9B8;" value="EEA9B8">Pink2</option><option style="background-color: #CD919E;" value="CD919E">Pink3</option><option style="background-color: #8B636C;" value="8B636C">Pink4</option><option style="background-color: #FFAEB9;" value="FFAEB9">LightPink1</option><option style="background-color: #EEA2AD;" value="EEA2AD">LightPink2</option><option style="background-color: #CD8C95;" value="CD8C95">LightPink3</option><option style="background-color: #8B5F65;" value="8B5F65">LightPink4</option><option style="background-color: #FF82AB;" value="FF82AB">PaleVioletRed1</option><option style="background-color: #EE799F;" value="EE799F">PaleVioletRed2</option><option style="background-color: #CD6889;" value="CD6889">PaleVioletRed3</option><option style="background-color: #8B475D;" value="8B475D">PaleVioletRed4</option><option style="background-color: #FF34B3;" value="FF34B3">Maroon1</option><option style="background-color: #EE30A7;" value="EE30A7">Maroon2</option><option style="background-color: #CD2990;" value="CD2990">Maroon3</option><option style="background-color: #8B1C62;" value="8B1C62">Maroon4</option><option style="background-color: #FF3E96;" value="FF3E96">VioletRed1</option><option style="background-color: #EE3A8C;" value="EE3A8C">VioletRed2</option><option style="background-color: #CD3278;" value="CD3278">VioletRed3</option><option style="background-color: #8B2252;" value="8B2252">VioletRed4</option><option style="background-color: #FF00FF;" value="FF00FF">Magenta1</option><option style="background-color: #EE00EE;" value="EE00EE">Magenta2</option><option style="background-color: #CD00CD;" value="CD00CD">Magenta3</option><option style="background-color: #8B008B;" value="8B008B">Magenta4</option><option style="background-color: #FF83FA;" value="FF83FA">Orchid1</option><option style="background-color: #EE7AE9;" value="EE7AE9">Orchid2</option><option style="background-color: #CD69C9;" value="CD69C9">Orchid3</option><option style="background-color: #8B4789;" value="8B4789">Orchid4</option><option style="background-color: #FFBBFF;" value="FFBBFF">Plum1</option><option style="background-color: #EEAEEE;" value="EEAEEE">Plum2</option><option style="background-color: #CD96CD;" value="CD96CD">Plum3</option><option style="background-color: #8B668B;" value="8B668B">Plum4</option><option style="background-color: #E066FF;" value="E066FF">MediumOrchid1</option><option style="background-color: #D15FEE;" value="D15FEE">MediumOrchid2</option><option style="background-color: #B452CD;" value="B452CD">MediumOrchid3</option><option style="background-color: #7A378B;" value="7A378B">MediumOrchid4</option><option style="background-color: #BF3EFF;" value="BF3EFF">DarkOrchid1</option><option style="background-color: #B23AEE;" value="B23AEE">DarkOrchid2</option><option style="background-color: #9A32CD;" value="9A32CD">DarkOrchid3</option><option style="background-color: #68228B;" value="68228B">DarkOrchid4</option><option style="background-color: #9B30FF;" value="9B30FF">Purple1</option><option style="background-color: #912CEE;" value="912CEE">Purple2</option><option style="background-color: #7D26CD;" value="7D26CD">Purple3</option><option style="background-color: #551A8B;" value="551A8B">Purple4</option><option style="background-color: #AB82FF;" value="AB82FF">MediumPurple1</option><option style="background-color: #9F79EE;" value="9F79EE">MediumPurple2</option><option style="background-color: #8968CD;" value="8968CD">MediumPurple3</option><option style="background-color: #5D478B;" value="5D478B">MediumPurple4</option><option style="background-color: #FFE1FF;" value="FFE1FF">Thistle1</option><option style="background-color: #EED2EE;" value="EED2EE">Thistle2</option><option style="background-color: #CDB5CD;" value="CDB5CD">Thistle3</option><option style="background-color: #8B7B8B;" value="8B7B8B">Thistle4</option><option style="background-color: #1C1C1C;" value="1C1C1C">grey11</option><option style="background-color: #363636;" value="363636">grey21</option><option style="background-color: #4F4F4F;" value="4F4F4F">grey31</option><option style="background-color: #696969;" value="696969">grey41</option><option style="background-color: #828282;" value="828282">grey51</option><option style="background-color: #9C9C9C;" value="9C9C9C">grey61</option><option style="background-color: #B5B5B5;" value="B5B5B5">grey71</option><option style="background-color: #CFCFCF;" value="CFCFCF">gray81</option><option style="background-color: #E8E8E8;" value="E8E8E8">gray91</option><option style="background-color: #A9A9A9;" value="A9A9A9">DarkGrey</option><option style="background-color: #00008B;" value="00008B">DarkBlue</option><option style="background-color: #008B8B;" value="008B8B">DarkCyan</option><option style="background-color: #8B008B;" value="8B008B">DarkMagenta</option><option style="background-color: #8B0000;" value="8B0000">DarkRed</option><option style="background-color: #90EE90;" value="90EE90">LightGreen</option>');
+</script></select>  &nbsp; <img src=http://www.e-reading.co.uk/images/size.jpg height=16 onClick="DisplaySettings('sizesettings')" alt="размер шрифта" style="vertical-align: bottom;"> <select id=sizesettings name=fsize onchange="ReaderSettings();" style="display: none;">
+<option value=0>размер шрифта</option><option value=6>6</option><option value=7>7</option><option value=8>8</option><option value=9>9</option><option value=10>10</option><option value=11>11</option><option value=12>12</option><option value=13>13</option><option value=14>14</option><option value=15>15</option><option value=16>16</option><option value=17>17</option><option value=18>18</option><option value=19>19</option><option value=20>20</option><option value=21>21</option><option value=22>22</option><option value=23>23</option><option value=24>24</option><option value=25>25</option><option value=26>26</option><option value=27>27</option><option value=28>28</option><option value=29>29</option><option value=30>30</option><option value=31>31</option><option value=32>32</option></select> &nbsp; <img src=http://www.e-reading.co.uk/images/save.jpg height=16 onClick="DisplaySettings('savesettings')" alt="сохранить книгу" style="vertical-align: bottom;"> <div id=savesettings style="display: none;"><a href="http://www.e-reading.co.uk/download.php?book=1013525"  rel="nofollow">fb2</a> <a href="http://www.e-reading.co.uk/txt.php/1013525/%D0%90%D1%80%D0%BC%D0%B8%D0%BD%D0%B8%D0%BE_-_%D0%9E%D1%82%D0%BA%D1%80%D1%8B%D1%82%D0%BA%D0%B8_%D1%81_%D1%82%D0%BE%D0%B3%D0%BE_%D1%81%D0%B2%D0%B5%D1%82%D0%B0.txt" rel="nofollow">txt</a> <a href=http://www.e-reading.co.uk/bookreader.php/save/1013525/%D0%90%D1%80%D0%BC%D0%B8%D0%BD%D0%B8%D0%BE_-_%D0%9E%D1%82%D0%BA%D1%80%D1%8B%D1%82%D0%BA%D0%B8_%D1%81_%D1%82%D0%BE%D0%B3%D0%BE_%D1%81%D0%B2%D0%B5%D1%82%D0%B0.html rel="nofollow">html</a>  <a href="http://www.e-reading.co.uk/lrf.php/1013525/%D0%90%D1%80%D0%BC%D0%B8%D0%BD%D0%B8%D0%BE_-_%D0%9E%D1%82%D0%BA%D1%80%D1%8B%D1%82%D0%BA%D0%B8_%D1%81_%D1%82%D0%BE%D0%B3%D0%BE_%D1%81%D0%B2%D0%B5%D1%82%D0%B0.lrf" rel="nofollow">lrf</a>  <a href="http://www.e-reading.co.uk/epub.php/1013525/%D0%90%D1%80%D0%BC%D0%B8%D0%BD%D0%B8%D0%BE_-_%D0%9E%D1%82%D0%BA%D1%80%D1%8B%D1%82%D0%BA%D0%B8_%D1%81_%D1%82%D0%BE%D0%B3%D0%BE_%D1%81%D0%B2%D0%B5%D1%82%D0%B0.epub" rel="nofollow">epub</a></div><div id=note class=booknote style="display: inline;"><br><b>Текст книги загружен, загружаются изображения<blink>…</blink></b></div></div></form>
+<script>
+/* Book notes */
+var booknotes = new Array();
+
+	function ShowBookNote( noteid )
+	{
+			document.getElementById('note').innerHTML = '<br>'+booknotes[noteid];
+			showlayer('note');
+	}
+
+	function HideBookNote( noteid )
+	{
+			document.getElementById('note').innerHTML = '';
+			hidelayer('note');
+	}
+
+	document.bgColor='ffffff';
+document.fgColor='363636';
+var b=document.getElementsByTagName('p');
+for( i=0; i<b.length; i++ )
+{
+	b[i].style.fontSize = '14px';
+}
+</script><div xmlns:v="http://rdf.data-vocabulary.org/#" typeof="v:Review-aggregate" style="text-align:right;padding-bottom:10px"><div property="v:itemreviewed"></div> Всего проголосовало: <span style="font-weight:bold" property="v:votes">5</span> <div style="display:inline" rel="v:rating">Средний рейтинг <span style="font-weight:bold" property="v:average">4.8</span> из <span property="v:best">5</span></div></div><p style="font-size: 12px;"><br><br><form action="http://www.e-reading.co.uk/book.php"><input type=hidden name=book value=1013525><span style="font-size: 12px;">Оцените эту книгу</span> <select name=rating style="font-size: 12px;"><option>-</option><option value=5>Отлично</option><option value=4>Хорошо</option><option value=3>Так себе</option><option value=2>Плохо</option><option value=1>Отвратительно</option></select> &nbsp; <input type=submit value=" отправить " style="font-size: 12px;"></forum><br><br></p><div id="complaintdiv" charset="Windows-1251"></div>
+<script type="text/javascript" language="JavaScript">
+function loadcomplaintdiv()
+{
+   if (xmlHttp.readyState == 4)
+   {
+      var response = xmlHttp.responseText;
+	  document.getElementById('complaintdiv').innerHTML = response;
+   }
+}
+function DisplayBlock( id )
+{
+	state='unknown';
+	if (document.all) { 
+    	eval( "if( document.all." + id +" ) state=document.all." + id + ".style.display");
+        }
+	if (document.layers) { 
+    	if( document.layers[id] ) state=document.layers[id].display;
+	}
+	if (document.getElementById && !document.all) {
+    	maxwell_smart = document.getElementById(id);
+    	if( maxwell_smart ) state=maxwell_smart.style.display;
+	}
+	if( state == 'none' ) state='block';
+	else state='none'; 
+	if (document.all) { 
+    	eval( "if( document.all." + id +" ) document.all." + id + ".style.display = state");
+	}
+	if (document.layers) {
+    	if( document.layers[id] ) document.layers[id].display = state;
+	}
+	if (document.getElementById && !document.all) {
+    	maxwell_smart = document.getElementById(id);
+    	if( maxwell_smart ) maxwell_smart.style.display = state;
+	}
+}
+
+
+xmlHttp.open("GET", "http://www.e-reading.co.uk/complaint-book.ru.php?bookid=1013525", true);
+xmlHttp.onreadystatechange = loadcomplaintdiv;
+xmlHttp.send(null);
+
+
+
+</script>
+
+
+<!-- pageversion: 30/01/2014:14:53:41 +0200 v=1020 k=www.e-reading.co.uk/bookreader.php/save/1013525/%D0%90%D1%80%D0%BC%D0%B8%D0%BD%D0%B8%D0%BE_-_%D0%9E%D1%82%D0%BA%D1%80%D1%8B%D1%82%D0%BA%D0%B8_%D1%81_%D1%82%D0%BE%D0%B3%D0%BE_%D1%81%D0%B2%D0%B5%D1%82%D0%B0.html -->
+<script type="text/javascript" language="javascript">
+
+tableruler();
+
+</script>
+<br><br><br><br><br><br>
+
+<br><br>
+    <noindex>
+        <!--LiveInternet counter-->
+        <script type="text/javascript"><!--
+        document.write("<a href='http://www.liveinternet.ru/click' "+"target=_blank><img src='//counter.yadro.ru/logo?14.11;' title='LiveInternet: �������� ����� ���������� �� 24"+" ����, ����������� �� 24 ���� � �� �������' "+"border='0' width='88' height='31'><\/a>"); 
+        //-->
+        </script>
+        <!--/LiveInternet-->
+    </noindex>
+
+<br><br><br><br>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-15280114-1']);
+  _gaq.push(['_setDomainName', 'e-reading.org.ua']);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</body>
+</html>
+
+
+

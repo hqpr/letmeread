@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block title  %} Все авторы на букву {{ letter }} {% endblock %}
+{% block content %}
+<div id="contents">
+    {% include 'inc/search.html' %}
+    <div class="by_letter">
+        {% for ru in r %}
+            <a href="/authors/{{ ru }}/" title="Сортировка по букве '{{ ru }}'">{{ ru }}</a>&nbsp;&nbsp;
+        {% endfor %}
+        <br>
+        <br>
+
+        {% for en in e %}
+            <a href="/authors/{{ en }}/" title="Сортировка по букве '{{ en }}'">{{ en }}</a>&nbsp;&nbsp;
+        {% endfor %}
+        <br>
+        <br>
+    </div>
+    <div class="return">
+        <a href="/authors/"> &larr; назад ко всем авторам</a>
+    </div>
+    {% for book in letter %}
+    <div class="small_wrapper">
+        <div class="img">
+            <a href="/author/{{ book.id }}/"><img src="{{ MEDIA_URL }}{{ book.image}}" height="200px" width="154px" alt="{{ book.name }}" /></a>
+        </div>
+        <div class="content">
+            <h2 class="name"><a href="/author/{{ book.id }}/"> {{ book.name }}</a></h2>
+            <br>
+            <br>
+        {% if book.bio == 'None' %}
+            <br><i>Пока нет биографии автора :(</i>
+        {% else %}
+            {{ book.bio|slice:":800" }}
+        {% endif %}
+            <br>
+            <br>
+            {% if book.year %}
+            {{ book.year }}
+            {% endif %}
+        </div>
+    </div>
+        <div style="clear: both"></div>
+    {% endfor %}
+
+</div>
+{% endblock %}

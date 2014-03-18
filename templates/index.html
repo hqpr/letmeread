@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+{% block title %} LET ME READ (LMR). Большая библиотека электронных книг {% endblock %}
+</head>
+{% block content %}
+</div>
+    {% include 'inc/slider.html' %}
+    {% include 'inc/testimonials.html' %}
+    <div class="wrapper">
+    {% include 'inc/search.html' %}
+    {% include 'inc/books.html' %}
+    {% include 'inc/clients.html' %}
+    </div>
+</div>
+    <div class="footerbg">
+        <!-- FOOTER START -->
+    <div class="wrapper">
+        {% include 'inc/bigfooter.html' %}
+    </div>
+    </div>
+{% endblock %}

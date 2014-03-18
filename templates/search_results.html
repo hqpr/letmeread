@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    {% block title %}Результаты поиска{% endblock %}
+</head>
+
+{% block content %}
+<div id="contents">
+    <div class="wrapper">
+        <div class="titleContainer font1 titlePage titleBordered">
+            <a href="/book/{{ b.id }}/" title="">
+            <div class="title">
+                Результаты поиска
+            </div>
+            </a>
+        </div>
+        <div class="page">
+        {% if errors %}
+            {% for error in errors %}
+                {{ error }}
+            {% endfor %}
+        {% endif %}
+    <p>Ваш запрос: <strong>{{ query }}</strong></p>
+
+    {% if books %}
+        <p>Найдено совпадений <b>{{ books|length }}</b>:</p>
+            <br>
+            {% for book in books %}
+                    <a href="/book/{{ book.id }}/"><span></span>{{ book.name }}</a> ({{ book.author }}) <br>
+            {% endfor %}
+    {% else %}
+        <p>К сожалению, ничего не найдено.</p>
+    {% endif %}
+
+    {% if authors %}
+        {% for author in authors %}
+            {{ author.name }}
+        {% endfor %}
+    {% endif %}
+        <br>
+        Повторить поиск?
+             <form action="/search/" method="GET">
+            <input style="border: solid 1px #FE5113; font-style: italic; color: #cccaca; padding-left: 10px;"  class="input" type="text" name="q" size="44" value="Запрос + Enter" onfocus="if(value == 'Запрос + Enter') value='';" onblur="if(value == '') value='Запрос + Enter';">
+            <input class="submit" type="submit" value="">
+        </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+
+    <h2></h2>
+

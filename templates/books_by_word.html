@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block title  %} Все книги на букву {{ letter }} {% endblock %}
+{% block content %}
+<div id="contents">
+    {% include 'inc/search.html' %}
+
+    <div class="by_letter">
+        {% for ru in r %}
+            <a href="/books/{{ ru }}/" title="Сортировка по букве '{{ ru }}'">{{ ru }}</a>&nbsp;&nbsp;
+        {% endfor %}
+        <br>
+        <br>
+
+        {% for en in e %}
+            <a href="/books/{{ en }}/" title="Сортировка по букве '{{ en }}'">{{ en }}</a>&nbsp;&nbsp;
+        {% endfor %}
+        <br>
+        <br>
+        {% for dig in d %}
+            <a href="/books/{{ dig }}/" title="Сортировка по цифре '{{ dig }}'">{{ dig }}</a>&nbsp;&nbsp;
+        {% endfor %}
+        <br>
+        <br>
+    </div>
+
+    <div class="return">
+        <a href="/books/"> &larr; назад ко всем книгам</a>
+    </div>
+    {% for book in letter %}
+    <div class="small_wrapper">
+        <div class="img">
+            <a href="/book/{{ book.id }}/"><img src="{{ MEDIA_URL }}{{ book.image }}" height="200px" width="135px" alt="{{ book.name }}" /></a>
+        </div>
+        <div class="content">
+            <h2 class="name"><a href="/book/{{ book.id }}/"> {{ book.name }}</a></h2>
+            <br>
+            <span class="author"><a href="/author/{{ book.author_id }}/"> {{ book.author }}</a>{% if book.rating %} | {{ book.rating }}{% endif %}</span>
+            <br>
+            <br>
+            {{ book.text|default:'<br><i>Пока нет описания :(</i>'}}
+            <br>
+            <br>
+            {% if book.year %}
+            {{ book.year }}
+            {% endif %}
+        </div>
+    </div>
+        <div style="clear: both"></div>
+    {% endfor %}
+
+</div>
+{% endblock %}

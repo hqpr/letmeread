@@ -1,0 +1,33 @@
+<div id="contents"><!-- CONTENTS START -->
+<div class="wrapper">
+    <div class="mainSlider">
+        <div class="mainSliderItemsWrapper">
+            <div class="mainSliderItems">
+                {% for a in s %}
+                <div class="mainSliderItemsEntry mainSliderItemsEntryActive">
+                    <img class="mainSliderItemsEntryImg" src="{{ MEDIA_URL }}{{ a.image }}" alt="" />
+                    <div class="mainSliderItemsEntryBox bgcolor2">
+                        <div class="mainSliderItemsEntryBoxBorder"></div>
+                        <div class="mainSliderItemsEntryBoxTitle textcolor2 font3">
+                            <a href="book/{{ a.book_id }}/"> {{ a.title }}</a>
+                        </div>
+                        <div class="mainSliderItemsEntryBoxContent textcolor3">
+                            {{ a.annotation }}
+                        </div>
+                        <div class="mainSliderItemsEntryBoxButtons">
+                            <div class="mainSliderItemsEntryBoxButtonsPrev bgcolor3 bgcolor_hover"></div>
+                            <div class="mainSliderItemsEntryBoxButtonsNext bgcolor3 bgcolor_hover"></div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="mainSliderNav">
+            <div class="mainSliderNavBar bgcolor"></div>
+        </div>
+    </div>
+
+</div>
+

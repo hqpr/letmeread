@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% for b in y %}
+{% block title %} Книги за {{ b.year }} {% endblock %}{% endfor %}
+{% block content %}
+{% for b in y %}
+<div id="contents">
+    <div class="wrapper">
+        <div class="titleContainer font1 titlePage titleBordered">
+            <a href="/book/{{ b.id }}" title="Перейти к книге">
+            <div class="title">
+                {{ b.name }}
+            </div>
+            </a>
+        </div>
+        <div class="page">
+            <a href="/book/{{ b.id }}">
+                <img class="pageImg pageImgLeft" src="{{ MEDIA_URL }}{{ b.image }}" alt="{{ b.name }}" title="{{ b.title }}" />
+            </a>
+                {{ b.text }}
+            <br /><br />
+        {{ b.year }}
+        <br /><br />
+            <a href="/author/{{ b.author }}" title="Перейти к автору">{{ b.author }}</a>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}

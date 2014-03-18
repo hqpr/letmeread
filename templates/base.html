@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>{% block title %} {% endblock %}</title>
+
+    <link href="{{ MEDIA_URL }}css/style.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="{{ MEDIA_URL }}js/plugins.js"></script>
+    <script type="text/javascript" src="{{ MEDIA_URL }}js/script.js"></script>
+
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-47346118-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+
+    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    </script>
+
+</head>
+
+    <body class="font3">
+        <div class="wrapper">
+            <div class="custombg"></div>
+        </div>
+        <div class="borderline1"></div>
+        <div class="borderline2"></div>
+        <div class="wrapper">
+            <div class="header">
+                <!-- HEADER START -->
+
+                <div class="logo">
+                    <a href="/"></a>
+                </div>
+                {% include 'inc/social.html' %}
+                {% include 'inc/menu.html' %}
+            </div>
+            <!-- HEADER END -->
+
+
+
+        {% block content %}
+
+        {% endblock %}
+
+        <!-- CONTENTS END -->
+
+        </div>
+
+        <!-- FOOTER END -->
+        {% include 'inc/footer.html' %}
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter24055192 = new Ya.Metrika({id:24055192,
+                    webvisor:true,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true});
+        } catch(e) { }
+    });
+
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f, false);
+    } else { f(); }
+})(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="//mc.yandex.ru/watch/24055192" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+    </body>
+</html>

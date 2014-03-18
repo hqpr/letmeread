@@ -1,0 +1,22 @@
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<div class="clients">
+    <div class="titleContainer font1">
+        <div class="title">
+           Издатели
+        </div>
+        <div class="clientsNav">
+            <div class="clientsNavPrev"></div>
+            <div class="clientsNavNext"></div>
+        </div>
+    </div>
+    <ul>
+        {% for b in pub %}
+        <li>
+            <a href="/publisher/{{ b.publisher }}/"><img src="{{ MEDIA_URL }}{{ b.image }}" alt="{{ b.publisher }}" title="{{ b.publisher }}" /></a>
+        {% endfor %}
+        </li>
+    </ul>
+    <div class="clear"></div>
+</div>

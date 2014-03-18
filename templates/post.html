@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <title>{{ p.title }}</title>
+        
+        <link href="{{ MEDIA_URL}}css/style.css" rel="stylesheet" type="text/css" />
+        
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+        <script type="text/javascript" src="{{ MEDIA_URL}}js/script.js"></script>
+    </head>
+    <body class="font3">
+        <div class="wrapper">
+            <div class="custombg"></div>
+        </div>
+        <div class="borderline1"></div>
+        <div class="borderline2"></div>
+        <div class="wrapper">
+            <div class="header"><!-- HEADER START -->
+                <div class="logo">
+                    <a href="/"></a>
+                </div>
+                {% include 'inc/social.html' %}
+                {% include 'inc/menu.html' %}
+            </div><!-- HEADER END -->
+        </div>
+        <div id="contents"><!-- CONTENTS START -->
+            <div class="wrapper">
+                <div class="streched">
+                    <div class="titleContainer font1 titlePage">
+                        <div class="title">
+                            {{ p.title }}
+                        </div>
+                    </div>
+                    <div class="post">
+                        <div class="postFeatured">
+                            <img src="{{ MEDIA_URL }}{{ p.image }}" alt="" />
+                        </div>
+                        <div class="postTitle">
+                            {{ p.title }}
+                        </div>
+                        <div class="postBody">
+                            {{ p.text }}
+                        </div>
+                        <div class="postFooter">
+                            <div class="postFooterDate">
+                                Опубликовано {{ p.date }}
+                            </div>
+
+                        </div>
+                            {% load disqus_tags %}
+                            {% disqus_dev %}
+                            {% disqus_show_comments %}
+                    </div>
+                </div>
+                {% include 'inc/sidebar.html' %}
+            </div>
+        </div><!-- CONTENTS END -->
+        {% include 'inc/bigfooter.html' %}
+    </body>
+</html>

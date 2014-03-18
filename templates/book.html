@@ -1,0 +1,214 @@
+{% extends 'base.html' %}
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    {% block title %}{{ d.name }} - {{ d.author }} - скачать и купить в формате fb2, txt, html{% endblock %}
+</head>
+
+{% block content %}
+    {% include 'inc/search.html' %}
+
+<div class="titleContainer font1 titlePage titleBordered">
+    <div class="title">
+        {{ d.name }}
+    </div>
+</div>
+<div class="project">
+    <div class="pageSlider">
+        <div class="pageSliderItems">
+            <ul>
+                <li class="active">
+                    {% if d.image %}
+                        <a href="{{ MEDIA_URL }}{{ d.image }}"> <img src="{{ MEDIA_URL }}{{ d.image }}" alt="{{ d.name }}" /></a
+                    {% else %}
+                        <img src="{{ MEDIA_URL }}noimage.jpg">
+                    {% endif %}
+
+                </li>
+            </ul>
+        </div>
+        <ul class="pageSliderNav">
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li class="pageSliderNavFill"></li>
+        </ul>
+    </div>
+    <div class="projectInfo">
+        <div class="projectInfoTitle font1">
+            {{ d.author }} - {{ d.name }}
+        </div>
+        <div class="projectInfoDescription">
+            {% autoescape on %}
+                {{ d.text|safe }}
+            {% endautoescape %}
+        </div>
+        <div class="projectInfoDetails">
+
+            <div class="projectInfoDetailsTitle font1">
+                Читать
+            </div>
+        {% if d.epublink %}
+        <div class="readblock">
+                <div><a href="{{ MEDIA_URL }}{{ d.epublink }}" title="Скачать {{ d.name }} в формате EPUB бесплатно"> EPUB </a></div>
+                <div><a href="{{ MEDIA_URL }}{{ d.htmllink }}" title="Скачать {{ d.name }} в формате HTML бесплатно"> HTML </a></div>
+                <div><a href="{{ MEDIA_URL }}{{ d.txtlink }}" title="Скачать {{ d.name }} в формате TXT бесплатно"> TXT </a></div>
+                <div><a href="{{ MEDIA_URL }}{{ d.mobilink }}" title="Скачать {{ d.name }} в формате MOBI бесплатно"> MOBI </a></div>
+        </div>
+            {% else %}<span style="font-size: small; padding-left: 40px; font-style: italic;">К сожалению, мы не успели добавить книги. Они будут доступны в ближайшее время.</span> <br>
+        {% endif %}
+            <br>
+            <br>
+            <div class="projectInfoDetailsTitle font1">
+                Детали
+            </div>
+            <div class="projectInfoDetailsEntry">
+                <div class="projectInfoDetailsEntryTitle">
+                    Категория
+                </div>
+                <div class="projectInfoDetailsEntryBody">
+                    <a href="/category/{{ d.category }}/"> {{ d.category }}</a>
+                </div>
+            </div>
+            <div class="projectInfoDetailsEntry">
+                <div class="projectInfoDetailsEntryTitle">
+                    Автор
+                </div>
+                <div class="projectInfoDetailsEntryBody">
+                   <a href="/author/{{ a.id }}/">{{ d.author }}</a>
+                </div>
+            </div>
+            {% if d.isbn %}
+            <div class="projectInfoDetailsEntry">
+                <div class="projectInfoDetailsEntryTitle">
+                    ISBN
+                </div>
+                <div class="projectInfoDetailsEntryBody">
+                    {{ d.isbn }}
+                </div>
+            </div>
+            {% endif %}
+            {% if d.publisher %}
+            <div class="projectInfoDetailsEntry">
+                <div class="projectInfoDetailsEntryTitle">
+                    Издательство
+                </div>
+                <div class="projectInfoDetailsEntryBody">
+                    <a href="/publisher/{{ d.publisher }}/"> {{ d.publisher }}</a>
+                </div>
+            </div>
+            {% endif %}
+            {% comment %}
+            {% if d.genre %}
+            <div class="projectInfoDetailsEntry">
+                <div class="projectInfoDetailsEntryTitle">
+                    Жанр
+                </div>
+                <div class="projectInfoDetailsEntryBody">
+                    {% for u in g %}
+                        {{ u }}
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+            {% endcomment %}
+            <div class="projectInfoDetailsEntry">
+                <div class="projectInfoDetailsEntryTitle">
+                    Рейтинг
+                </div>
+                <div class="projectInfoDetailsEntryBody">
+                    {{ d.rating }}
+                </div>
+            </div>
+            {% if d.litrating %}
+           <div class="projectInfoDetailsEntry">
+                <div class="projectInfoDetailsEntryTitle">
+                    LitRes
+                </div>
+                <div class="projectInfoDetailsEntryBody">
+                    {{ d.litrating }}
+                </div>
+            </div>
+            {% endif %}
+        {% if d.year %}
+           <div class="projectInfoDetailsEntry">
+                <div class="projectInfoDetailsEntryTitle">
+                    Год выпуска
+                </div>
+                <div class="projectInfoDetailsEntryBody">
+                    <a href="/year/{{ d.year }}/">{{ d.year }}</a>
+                </div>
+           </div>
+        {% endif %}
+
+        {% if d.series %}
+           <div class="projectInfoDetailsEntry">
+                <div class="projectInfoDetailsEntryTitle">
+                    Серия книг
+                </div>
+                <div class="projectInfoDetailsEntryBody">
+                    <a href="/book/series/{{ d.series }}/">{{ d.series }}</a>
+                </div>
+           </div>
+        {% endif %}
+
+
+        {% if d.screening %}
+           <div class="projectInfoDetailsEntry">
+                <div class="projectInfoDetailsEntryTitle">
+                    Экранизация
+                </div>
+                <div class="projectInfoDetailsEntryBody">
+                    <a rel="nofollow" target="_blank" href="http://www.kinopoisk.ru/index.php?first=no&kp_query={{ d.movie }}">{{ d.movie }}</a>{% if d.release %}
+                    ({{ d.release }})
+                {% endif %}
+                </div>
+           </div>
+        {% endif %}
+
+           <div class="tags">
+                    {% for a in g %}
+                        <a class="tags" href="/tag/{{ a }}/">{{ a }}</a>,
+                    {% endfor %}
+           </div>
+
+        </div>
+
+    </div>
+
+                            {% load disqus_tags %}
+                            {% disqus_dev %}
+                            {% disqus_show_comments %}
+
+    <div class="projectRelated">
+        <div class="titleContainer font1">
+            <div class="title">
+                Что читать дальше
+            </div>
+            <div class="clientsNav">
+                <div class="clientsNavPrev"></div>
+                <div class="clientsNavNext"></div>
+            </div>
+        </div>
+        <ul class="clients">
+            {% for a in g %}
+            <li>
+                <a href="/book/{{ a.id }}/"  title="{{ a.name }}">
+                    <img src="{{ MEDIA_URL }}{{ a.image }}" alt="{{ a.name }}" title="{{ a.name }}"/>
+                </a>
+                <div class="title">
+                    <a href="/book/{{ a.id }}/" title="{{ a.name }}">
+                        {{ a.name }}
+                    </a>
+                </div>
+                <div class="description">
+                    <p title="Рейтинг книги {{ a.rating }}">{{ a.rating }}</p>
+                </div>
+            </li>
+           {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}

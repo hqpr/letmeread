@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    {% block title %}{% endblock %}
+</head>
+
+{% block content %}
+{% for b in c %}
+<div id="contents">
+    <div class="wrapper">
+        <div class="titleContainer font1 titlePage titleBordered">
+            <a href="/book/{{ b.id }}/" title="{{ b.name }}">
+            <div class="title">
+                {{ b.name }}
+            </div>
+            </a>
+        </div>
+        <div class="page">
+            <a href="/book/{{ b.id }}/">
+                <img class="pageImg pageImgLeft" src="{{ MEDIA_URL }}{{ b.image }}" alt="{{ b.name }}" title="{{ b.name }}" />
+            </a>
+            {% autoescape on %}
+                {{ b.text|safe }}
+            {% endautoescape %}
+
+            <br /><br />
+
+        {% if b.year %}
+            {{ b.year }}
+        {% endif %}
+        <br /><br />
+            <a href="/author/{{ b.author_id }}/" title="">{{ b.author }}</a>
+        </div>
+    </div>
+</div>
+{% endfor %}
+    <div class="blogNav">
+        {% if c.has_previous %}
+            <a href="?page={{ c.previous_page_number }}"> &larr; </a>
+        {% endif %}
+        <a class="blogNavActive">{{ c.number }}</a>
+        {% if c.has_next %}
+            <a href="?page={{ c.next_page_number }}">{{ c.next_page_number }}</a>
+            <span> ... </span>
+            <a href="?page={{ c.paginator.num_pages }}">{{ c.paginator.num_pages }}</a>
+            <a href="?page={{ c.next_page_number }}" title="На следующую страницу">&rarr; </a>
+        {% endif %}
+    </div>
+
+
+
+
+
+{% endblock %}

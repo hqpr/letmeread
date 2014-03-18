@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    {% block title %}Все книги{% endblock %}
+</head>
+
+{% block content %}
+    {% include 'inc/search.html' %}
+
+    <div class="by_letter">
+        {% for ru in r %}
+            <a href="/books/{{ ru }}/" title="Сортировка по букве '{{ ru }}'">{{ ru }}</a>&nbsp;&nbsp;
+        {% endfor %}
+        <br>
+        <br>
+
+        {% for en in e %}
+            <a href="/books/{{ en }}/" title="Сортировка по букве '{{ en }}'">{{ en }}</a>&nbsp;&nbsp;
+        {% endfor %}
+        <br>
+        <br>
+        {% for dig in d %}
+            <a href="/books/{{ dig }}/" title="Сортировка по цифре '{{ dig }}'">{{ dig }}</a>&nbsp;&nbsp;
+        {% endfor %}
+        <br>
+        <br>
+    </div>
+
+{% for book in c %}
+<div id="contents">
+    <div class="small_wrapper">
+        <div class="img">
+            <a href="/book/{{ book.id }}/"><img src="{{ MEDIA_URL }}{{ book.image }}" height="200px" width="135px" alt="{{ book.name }}" /></a>
+        </div>
+        <div class="content">
+            <h2 class="name"><a href="/book/{{ book.id }}/"> {{ book.name }}</a></h2>
+            <br>
+            <span class="author"><a href="/author/{{ book.author_id }}/"> {{ book.author }}</a>{% if book.rating %} | {{ book.rating }}{% endif %}</span>
+            <br>
+            <br>
+            {{ book.text|default:'<br><i>Пока нет описания :(</i>'}}
+            <br>
+            <br>
+            {% if book.year %}
+            {{ book.year }}
+            {% endif %}
+        </div>
+    </div>
+        <div style="clear: both"></div>
+</div>
+{% endfor %}
+    <div class="blogNav">
+        {% if c.has_previous %}
+            <a href="?page={{ c.previous_page_number }}"> &larr; </a>
+        {% endif %}
+        <a class="blogNavActive">{{ c.number }}</a>
+        {% if c.has_next %}
+            <a href="?page={{ c.next_page_number }}">{{ c.next_page_number }}</a>
+            <span> ... </span>
+            <a href="?page={{ c.paginator.num_pages }}">{{ c.paginator.num_pages }}</a>
+            <a href="?page={{ c.next_page_number }}" title="На следующую страницу">&rarr; </a>
+        {% endif %}
+    </div>
+
+
+
+
+
+{% endblock %}

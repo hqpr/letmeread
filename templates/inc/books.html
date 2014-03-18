@@ -1,0 +1,233 @@
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<div class="works">
+    <div class="worksFilter">
+        <div class="worksFilterText textcolor6">
+            Категории:
+        </div>
+        <ul class="worksFilterCategories">
+            <li class="textcolor6 worksFilterCategoriesActive bordercolor3" data-category="all">
+                <div class="bordercolor3">
+                    Все
+                </div>
+            </li>
+            <li class="textcolor6 bordercolor3" data-category="popular">
+                <div class="bordercolor3">
+                    Самые популярные
+                </div>
+            </li>
+            <li class="textcolor6 bordercolor3" data-category="top100">
+                <div class="bordercolor3">
+                    Топ 100
+                </div>
+            </li>
+            <li class="textcolor6 bordercolor3" data-category="best_of_2014">
+                <div class="bordercolor3">
+                    Best 2014
+                </div>
+            </li>
+            <li class="textcolor6 bordercolor3" data-category="best_of_2013">
+                <div class="bordercolor3">
+                    Best 2013
+                </div>
+            </li>
+            <li class="textcolor6 bordercolor3" data-category="best_of_2012">
+                <div class="bordercolor3">
+                    Best 2012
+                </div>
+            </li>
+            <li class="textcolor6 bordercolor3" data-category="tv">
+                <div class="bordercolor3">
+                    Экранизации
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="worksViews">
+        <div class="worksViewsOption bordercolor3 worksViewsOptionActive" data-class="worksContainerView1">
+            <img src="{{ MEDIA_URL }}img/options/sort_opt1.png" alt="" />
+        </div>
+        <div class="worksViewsOption bordercolor3" data-class="worksContainerView2">
+            <img src="{{ MEDIA_URL }}img/options/sort_opt2.png" alt="" />
+        </div>
+    </div>
+    <div class="worksContainer worksContainerView1">
+
+
+<!-- book -->
+{%  for b in popular %}
+<div class="worksEntry" data-categories="popular">
+    <div class="worksEntryContainer">
+        <div class="worksEntryInfo">
+            <div class="worksEntryInfoTitle">
+                <a href="book/{{ b.id }}/">
+                    {{ b.name }}
+                </a>
+            </div>
+            <div  class="worksEntryInfoExcerpt">
+                {{ b.text }}
+            </div>
+            <div  class="worksEntryInfoExcerptBig">
+                {{ b.text }}
+            </div>
+            <div class="worksEntryInfoMore">
+                <a href="book/{{ b.id }}/">
+                    подробнее
+                </a>
+            </div>
+        </div></a>
+        <a href="book/{{ b.id }}/"><img class="worksEntryImg" src="{{ MEDIA_URL }}{{ b.image }}" alt="{{ b.name }}" /></a>
+        <img class="worksEntryImgBig" src="{{ MEDIA_URL }}{{ b.image }}" alt="" />
+    </div>
+</div>
+{% endfor %}
+<!-- end book -->
+
+<!-- book -->
+{% for b in tv %}
+<div class="worksEntry" data-categories="tv">
+    <div class="worksEntryContainer">
+        <div class="worksEntryInfo">
+            <div class="worksEntryInfoTitle">
+                <a href="book/{{ b.id }}/">
+                    {{ b.name }}
+                </a>
+            </div>
+            <div  class="worksEntryInfoExcerpt">
+                {{ b.text }}
+            </div>
+            <div  class="worksEntryInfoExcerptBig">
+                {{ b.text }}
+            </div>
+            <div class="worksEntryInfoMore">
+                <a href="book/{{ b.id }}/">
+                    подробнее
+                </a>
+            </div>
+        </div>
+        <a href="book/{{ b.id }}/"><img class="worksEntryImg" src="{{ MEDIA_URL }}{{ b.image }}" alt="{{ b.name }}" /></a>
+        <img class="worksEntryImgBig" src="{{ MEDIA_URL }}{{ b.image }}" alt="" />
+    </div>
+</div>
+{% endfor %}
+<!-- end book -->
+
+<!-- book -->
+{% for b in best_of_2013 %}
+<div class="worksEntry" data-categories="best_of_2013">
+    <div class="worksEntryContainer">
+        <div class="worksEntryInfo">
+            <div class="worksEntryInfoTitle">
+                <a href="book/{{ b.id }}/">
+                    {{ b.name }}
+                </a>
+            </div>
+            <div  class="worksEntryInfoExcerpt">
+                {{ b.text }}
+            </div>
+            <div  class="worksEntryInfoExcerptBig">
+                {{ b.text }}
+            </div>
+            <div class="worksEntryInfoMore">
+                <a href="book/{{ b.id }}/">
+                    подробнее
+                </a>
+            </div>
+        </div>
+        <a href="book/{{ b.id }}/"><img class="worksEntryImg" src="{{ MEDIA_URL }}{{ b.image }}" alt="{{ b.name }}" /></a>
+        <img class="worksEntryImgBig" src="{{ MEDIA_URL }}{{ b.image }}" alt="" />
+    </div>
+</div>
+{% endfor %}
+ <!-- end book -->
+
+<!-- book -->
+{% for b in best_of_2012 %}
+<div class="worksEntry" data-categories="best_of_2012">
+    <div class="worksEntryContainer">
+        <div class="worksEntryInfo">
+            <div class="worksEntryInfoTitle">
+                <a href="book/{{ b.id }}/">
+                    {{ b.name }}
+                </a>
+            </div>
+            <div  class="worksEntryInfoExcerpt">
+                {{ b.text }}
+            </div>
+            <div  class="worksEntryInfoExcerptBig">
+                {{ b.text }}
+            </div>
+            <div class="worksEntryInfoMore">
+                <a href="book/{{ b.id }}/">
+                    подробнее
+                </a>
+            </div>
+        </div>
+        <a href="book/{{ b.id }}/"><img class="worksEntryImg" src="{{ MEDIA_URL }}{{ b.image }}" alt="{{ b.name }}" /></a>
+        <img class="worksEntryImgBig" src="{{ MEDIA_URL }}{{ b.image }}" alt="" />
+    </div>
+</div>
+{% endfor %}
+ <!-- end book -->
+
+<!-- book -->
+{% for b in best_of_2014 %}
+<div class="worksEntry" data-categories="best_of_2014">
+    <div class="worksEntryContainer">
+        <div class="worksEntryInfo">
+            <div class="worksEntryInfoTitle">
+                <a href="book/{{ b.id }}/">
+                    {{ b.name }}
+                </a>
+            </div>
+            <div  class="worksEntryInfoExcerpt">
+                {{ b.text }}
+            </div>
+            <div  class="worksEntryInfoExcerptBig">
+                {{ b.text }}
+            </div>
+            <div class="worksEntryInfoMore">
+                <a href="book/{{ b.id }}/">
+                    подробнее
+                </a>
+            </div>
+        </div>
+        <a href="book/{{ b.id }}"><img class="worksEntryImg" src="{{ MEDIA_URL }}{{ b.image }}" alt="{{ b.name }}" /></a>
+        <img class="worksEntryImgBig" src="{{ MEDIA_URL }}{{ b.image }}" alt="" />
+    </div>
+</div>
+{% endfor %}
+ <!-- end book -->
+
+<!-- book -->
+{% for b in top100 %}
+<div class="worksEntry" data-categories="top100">
+    <div class="worksEntryContainer">
+        <div class="worksEntryInfo">
+            <div class="worksEntryInfoTitle">
+                <a href="book/{{ b.id }}">
+                    {{ b.name }}
+                </a>
+            </div>
+            <div  class="worksEntryInfoExcerpt">
+                {{ b.text }}
+            </div>
+            <div  class="worksEntryInfoExcerptBig">
+                {{ b.text }}
+            </div>
+            <div class="worksEntryInfoMore">
+                <a href="book/{{ b.id }}/">
+                    подробнее
+                </a>
+            </div>
+        </div>
+        <a href="book/{{ b.id }}/"><img class="worksEntryImg" src="{{ MEDIA_URL }}{{ b.image }}" alt="{{ b.name }}" /></a>
+        <img class="worksEntryImgBig" src="{{ MEDIA_URL }}{{ b.image }}" alt="{{ b.name }}" />
+    </div>
+</div>
+{% endfor %}
+ <!-- end book -->
+
+    </div>
+</div>

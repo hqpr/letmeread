@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    {% block title %}Все книги по тэгу{% endblock %}
+</head>
+
+{% block content %}
+{% for book in b %}
+<div id="contents">
+    <div class="wrapper">
+        <div class="titleContainer font1 titlePage titleBordered">
+            <a href="/book/{{ book.id }}/" title="">
+            <div class="title">
+                {{ book.name }}
+            </div>
+            </a>
+        </div>
+        <div class="page">
+            <a href="/book/{{ book.id }}/">
+                <img class="pageImg pageImgLeft" src="{{ MEDIA_URL }}{{ book.image }}" alt="{{ book.name }}" title="{{ book.name }}" />
+            </a>
+                {{ book.text }}
+            <br /><br />
+        {{ book.year }}
+        <br /><br />
+            <a href="/author/{{ b.id }}/" title="{{ b.author }}">{{ b.author }}</a>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}

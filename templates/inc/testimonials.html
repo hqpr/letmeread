@@ -1,0 +1,19 @@
+{% for a in q %}
+<div class="testimonialbg">
+    <div class="wrapper">
+        <div class="testimonial">
+            <div class="testimonialImg bordercolor">
+                <img src="{{ MEDIA_URL }}{{ a.image }}" alt="" />
+            </div>
+            <div class="testimonialContent font4">
+                <div class="testimonialContentText textcolor4">
+                    &#171;{{ a.text }}&#187;
+                </div>
+                <div class="testimonialContentAuthor textcolor5">
+                    &HorizontalLine;  {{ a.author }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
